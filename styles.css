@@ -1,0 +1,341 @@
+
+:root {
+    --background-color: #FFFFFF;
+    --text-color: #000000;
+    --primary-color: #000000;
+    --secondary-color: #FFFFFF;
+    --accent-color: #888888;
+    --font-family: 'Montserrat', 'Noto Sans JP', sans-serif;
+}
+
+body {
+    font-family: var(--font-family);
+    color: var(--text-color);
+    background-color: var(--background-color);
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+    overflow: hidden;
+}
+
+header {
+    background-color: var(--primary-color);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 15px 0;
+    margin: 0;
+}
+
+nav ul li {
+    margin: 0 20px;
+}
+
+nav ul li a {
+    color: var(--secondary-color);
+    text-decoration: none;
+    font-weight: 700;
+    padding: 5px 0;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: var(--accent-color);
+}
+
+.hero {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    padding: 150px 0;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 4rem;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 1.5rem;
+    color: var(--accent-color);
+}
+
+.hero .button {
+    margin-top: 30px;
+}
+
+section h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    color: var(--text-color);
+    position: relative;
+}
+
+section h2::after {
+    content: '';
+    width: 60px;
+    height: 2px;
+    background: var(--text-color);
+    display: block;
+    margin: 20px auto 0;
+}
+
+.portfolio {
+    padding: 60px 0;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    background-color: var(--accent-color);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    filter: grayscale(100%);
+    transition: filter 0.5s ease, transform 0.5s ease;
+}
+
+.gallery-item:hover img {
+    filter: grayscale(0%);
+    transform: scale(1.05);
+}
+
+.gallery-item-info {
+    padding: 20px;
+    text-align: center;
+}
+
+.gallery-item-info h3 {
+    margin-bottom: 10px;
+}
+
+.gallery-item-info p {
+    font-size: 1rem;
+    color: var(--text-color);
+}
+
+.gallery-item .button {
+    margin-top: 15px;
+}
+
+/* モーダルウィンドウ */
+.modal {
+    display: none; /* 初期状態は非表示 */
+    position: fixed;
+    z-index: 200;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.8);
+}
+
+.modal-content {
+    background-color: var(--secondary-color);
+    margin: 5% auto;
+    padding: 20px;
+    width: 80%;
+    max-width: 800px;
+    position: relative;
+    border-radius: 8px;
+}
+
+.modal-content img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.modal-content h3 {
+    margin-top: 0;
+}
+
+.modal-content p {
+    font-size: 1rem;
+    color: var(--text-color);
+}
+
+.close {
+    color: var(--text-color);
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    font-size: 2rem;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.close:hover,
+.close:focus {
+    color: var(--accent-color);
+    cursor: pointer;
+}
+
+/* プロフィールセクション */
+.profile {
+    padding: 60px 0;
+}
+
+.profile p {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 40px;
+}
+
+.profile h3 {
+    margin-top: 40px;
+}
+
+.skills {
+    list-style: none;
+    padding: 0;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.skills li {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    color: var(--text-color);
+}
+
+/* タイムライン */
+.timeline {
+    list-style: none;
+    padding: 0;
+    max-width: 600px;
+    margin: 40px auto 0;
+}
+
+.timeline li {
+    margin-bottom: 30px;
+}
+
+.timeline h4 {
+    margin-bottom: 5px;
+}
+
+.timeline p {
+    margin: 0;
+}
+
+
+.contact {
+    padding: 60px 0;
+}
+
+.contact p {
+    text-align: center;
+    font-size: 1.2rem;
+}
+
+.contact a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: 700;
+    transition: color 0.3s;
+}
+
+.contact a:hover {
+    color: var(--accent-color);
+}
+
+/* ボタン */
+.button {
+    display: inline-block;
+    background-color: var(--text-color);
+    color: var(--background-color);
+    padding: 12px 25px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 700;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.button:hover {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    border: 1px solid var(--text-color);
+}
+
+/* フッター */
+footer {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    text-align: center;
+    padding: 20px 0;
+}
+
+footer p {
+    margin: 0;
+}
+
+.back-to-top {
+    display: block;
+    color: var(--secondary-color);
+    text-decoration: none;
+    margin-top: 10px;
+    transition: color 0.3s;
+}
+
+.back-to-top:hover {
+    color: var(--accent-color);
+}
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 3rem;
+    }
+
+    nav ul li {
+        margin: 0 10px;
+    }
+
+    .skills li,
+    .timeline li {
+        font-size: 1rem;
+    }
+}
+
+.typewriter {
+    display: inline-block;
+    border-right: 2px solid var(--text-color);
+    white-space: nowrap;
+    overflow: hidden;
+    font-size: 4rem;
+    animation: typing 4s steps(40, end), blink-caret 0.75s step-end infinite;
+}
+
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent; }
+    50% { border-color: var(--text-color); }
+}
+

@@ -1,11 +1,94 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Tina Nakamura</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    Hello World
+    <header>
+        <div class="container">
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#profile">Profile</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+<section id="home" class="hero">
+    <div class="container">
+        <h1><span class="typewriter"></span></h1>
+        <p>Digital Design / Tina Nakamura</p>
+        <a href="#portfolio" class="button">作ったもの</a>
+    </div>
+</section>
+
+        <section id="portfolio" class="portfolio">
+            <div class="container">
+                <h2>Portfolio</h2>
+                <div class="gallery">
+                    <div class="gallery-item">
+                        <img src="image/agene.png" alt="作品1">
+                        <div class="gallery-item-info">
+                            <h3>UTAU用音源「Agene」配布サイト</h3>
+                            <p>Ageneの配布サイトです........</p>
+                            <a href="#modal1" class="button">詳細を見る</a>
+                        </div>
+                    </div>
+                    <div id="modal1" class="modal">
+                        <div class="modal-content">
+                            <span class="close">&times;</span>
+                            <img src="image/agene.png" alt="作品1">
+                            <h3>UTAU用音源「Agene」配布サイト</h3>
+                            <p>レスポンシブでちゃんとナビをハンバーガーにするのを頑張りました！</p>
+                        </div>
+                    </div>
+                    <!-- 他の作品 -->
+                </div>
+            </div>
+        </section>
+        
+        <section id="profile" class="profile">
+            <div class="container">
+                <h2>Profile</h2>
+                <p>Webコーダーのお仕事に興味があります。</p>
+                <h3>スキル</h3>
+                <ul class="skills">
+                    <li>HTML / CSS / JavaScript / PHP</li>
+                    <li>Photoshop / Illustrator</li>
+     </ul>
+                <h3>経歴</h3>
+                <ul class="timeline">
+                    <li>
+                        <h4>2023年 - 現在</h4>
+                        <p>専修学校インターナショナルデザインアカデミー在学中</p>
+                    </li>
+                    <li>
+                        <h4>2023年</h4>
+                        <p>沖縄県立美来工科高校 コンピューターデザイン科卒業</p>
+                    </li>
+                </ul>
+            </div>
+        </section>
+        
+        <section id="contact" class="contact">
+            <div class="container">
+                <h2>Contact</h2>
+                <p>Email: <a href="mailto:thia0907a@gmail.com">thia0907a@gmail.com</a></p>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="container">
+            <small>&copy; 2024 titichan. All rights reserved.</small>
+        </div>
+    </footer>
+    <script src="script.js"></script>
 </body>
 </html>
