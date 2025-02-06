@@ -1,0 +1,414 @@
+/* ベース設定 */
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: #fff;
+    color: #333;
+    scroll-behavior: smooth; /* スムーススクロール */
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+  }
+  
+  /* リンクのデフォルト設定 */
+  a {
+    color: #000;
+    text-decoration: none;
+    transition: opacity 0.2s ease;
+  }
+  a:hover {
+    opacity: 0.7;
+  }
+  
+  /*------------------------------------
+    HEADER
+  ------------------------------------*/
+  .site-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+    background-color: #fff;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  .logo-img {
+    max-height: 50px; 
+    height: auto;
+    display: block;
+  }
+  
+  /* PC用のヘッダーナビ（大画面で表示） */
+  .header-nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* 下線アニメーション（PC用ナビ） */
+  .header-nav a {
+    position: relative;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    color: #000;
+    transition: color 0.2s ease;
+  }
+  .header-nav a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    width: 0%;
+    height: 2px;
+    background: #000;
+    transition: width 0.3s ease;
+  }
+  .header-nav a:hover::after {
+    width: 100%;
+  }
+  
+  /*------------------------------------
+    ハンバーガーボタン (小画面のみ表示)
+  ------------------------------------*/
+  .hamburger {
+    display: none; /* デフォルトは非表示 */
+    flex-direction: column;
+    gap: 4px;
+    cursor: pointer;
+  }
+  .hamburger span {
+    width: 25px;
+    height: 3px;
+    background-color: #000;
+    transition: transform 0.4s ease, opacity 0.4s ease;
+  }
+  
+  /*------------------------------------
+    MODAL (小画面用ナビ)
+  ------------------------------------*/
+  .modal {
+    position: fixed;
+    top: 0; 
+    left: 0; 
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.7); 
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .modal.open {
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  .modal-content {
+    position: relative;
+    background: #000;
+    padding: 2rem;
+    border-radius: 4px;
+    max-width: 300px;
+    width: 80%;
+    text-align: center;
+    color: #fff;
+    animation: scaleUp 0.3s ease; 
+  }
+  
+  @keyframes scaleUp {
+    0% {
+      transform: scale(0.8);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  
+  /* モーダル ×ボタン */
+  .modal-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: transparent;
+    border: none;
+    font-size: 1.5rem;
+    color: #fff;
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+  }
+  .modal-close:hover {
+    opacity: 0.7;
+  }
+  
+  .modal-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 2rem 0 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  /* モーダルナビリンクの下線アニメーション */
+  .modal-nav a {
+    color: #fff;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    position: relative;
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+  .modal-nav a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    width: 0%;
+    height: 2px;
+    background: #fff;
+    transition: width 0.3s ease;
+  }
+  .modal-nav a:hover::after {
+    width: 100%;
+  }
+  
+  /*------------------------------------
+    HERO SECTION (背景画像に変更)
+  ------------------------------------*/
+  .hero {
+    position: relative;
+    width: 100vw;
+    height: 60vh;
+    /* 背景画像(白黒推奨など) */
+    background: #000 url("back.jpg") center/cover no-repeat;
+    filter: grayscale(100%);
+    &::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-color: rgba(0,0,0,0.4);
+    }
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+  }
+  
+  /* テキストフェードイン演出 */
+  .hero-text {
+    position: relative;
+    z-index: 1; /* オーバーレイより上 */
+    max-width: 600px;
+    padding: 0 1rem;
+    opacity: 0;
+    animation: fadeInHeroText 1s ease forwards;
+    animation-delay: 0.3s;
+  }
+  
+  @keyframes fadeInHeroText {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .hero-text h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .hero-text p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+  }
+  
+  .btn-hero {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    background-color: #fff;
+    color: #000;
+    font-weight: bold;
+    border-radius: 2px;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+  }
+  .btn-hero:hover {
+    opacity: 0.8;
+    transform: scale(1.05);
+  }
+  
+  /*------------------------------------
+    SECTION 共通
+  ------------------------------------*/
+  section {
+    padding: 3rem 0rem;
+  }
+  section h2 {
+    margin-bottom: 1rem;
+    font-size: 1.8rem;
+    border-bottom: 2px solid #000;
+    display: inline-block;
+  }
+  
+  /*------------------------------------
+    ABOUT
+  ------------------------------------*/
+  .about-section p {
+    line-height: 1.8;
+  } 
+  .about-section {
+    padding: 3rem 2rem;
+  }
+  /*------------------------------------
+    DOWNLOAD
+  ------------------------------------*/
+  .download-section {
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .download-section p {
+    margin-bottom: 2rem;
+  }
+  
+  /* グリッドレイアウト */
+  .voicebank-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+  }
+  .voicebank {
+    padding: 1.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .voicebank:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+  }
+  
+  .voicebank h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .btn-download {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.8rem 1.2rem;
+    background-color: #000;
+    color: #fff;
+    font-weight: bold;
+    border-radius: 2px;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+  }
+  .btn-download:hover {
+    opacity: 0.8;
+    transform: scale(1.05);
+  }
+  
+  /*------------------------------------
+    DEMO
+  ------------------------------------*/
+  .demo-section {
+    text-align: center;
+  }
+  .demo-section audio {
+    margin-top: 1rem;
+  }
+  
+  /*------------------------------------
+    TERMS (利用規約)
+  ------------------------------------*/
+  .terms-section {
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.8;
+  }
+  
+  /*------------------------------------
+    FOOTER
+  ------------------------------------*/
+  .site-footer {
+    text-align: center;
+    padding: 1rem 2rem;
+    background-color: #f2f2f2;
+    color: #666;
+    font-size: 0.9rem;
+  }
+  
+  /*------------------------------------
+    RESPONSIVE
+  ------------------------------------*/
+  /* 画面幅768px以下では
+     PC用ナビ(header-nav)を消し、
+     ハンバーガーを表示してモーダルでメニューを管理
+  */
+  @media screen and (max-width: 768px) {
+    .header-nav {
+      display: none; /* PC用ナビを非表示 */
+    }
+    .hamburger {
+      display: flex; /* ハンバーガーを表示 */
+    }
+  
+    /* ヒーロー */
+    .hero {
+      height: auto;
+      padding: 3rem 1rem;
+    }
+    .hero-text h1 {
+      font-size: 1.8rem;
+    }
+    .hero-text p {
+      font-size: 1rem;
+    }
+  
+    /* セクション共通 */
+    section {
+      padding: 2rem 1rem;
+    }
+    section h2 {
+      font-size: 1.5rem;
+    }
+  
+    /* ダウンロードセクションのグリッドを1カラムに */
+    .voicebank-list {
+      grid-template-columns: 1fr;
+    }
+  
+    /* フッター */
+    .site-footer {
+      font-size: 0.8rem;
+    }
+  }
+  
+  /* 画面幅769px以上では
+     PC用ナビを表示し、ハンバーガーとモーダルを非表示に
+  */
+  @media screen and (min-width: 769px) {
+    .header-nav {
+      display: block;
+    }
+    .hamburger {
+      display: none;
+    }
+    .modal {
+      display: none; /* 大画面ではモーダル自体を隠す */
+    }
+  }
+  

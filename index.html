@@ -1,110 +1,166 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tina Nakamura</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>UTAU音源配布サイト</title>
+
+  <!-- Google Fonts（例：Roboto） -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- 外部CSSの読み込み -->
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <header>
-        <div class="container">
-            <nav>
-                <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#portfolio">Portfolio</a></li>
-                    <li><a href="#profile">Profile</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
-    <main>
-<section id="home" class="hero">
-    <div class="container">
-        <h1><span class="typewriter"></span></h1>
-        <p>Digital Design / Tina Nakamura</p>
-        <a href="#portfolio" class="button">作ったもの</a>
+  <!-- ヘッダー -->
+  <header class="site-header">
+    <!-- ロゴ -->
+    <div class="logo">
+      <a href="#">
+       <h1>AGENE</h1>
+      </a>
     </div>
-</section>
 
-        <section id="portfolio" class="portfolio">
-            <div class="container">
-                <h2>Portfolio</h2>
-                <div class="gallery">
-                    <div class="gallery-item">
-                        <img src="image/agene.png" alt="作品1" width="2779" height="1503">
-                        <div class="gallery-item-info">
-                            <h3>UTAU用音源「Agene」配布サイト</h3>
-                            <p>卒業制作で作った、UTAU音源<br>「Agene」の配布サイトです！</p>
-                            <a href="#modal1" class="button">詳細を見る</a>
-                        </div>
-                    </div>
-                    <div id="modal1" class="modal">
-                        <div class="modal-content">
-                            <span class="close">&times;</span>
-                            <img src="image/agene.png" alt="作品1">
-                            <h3>UTAU用音源「Agene」配布サイト</h3>
-                            <p>レスポンシブでちゃんとナビをハンバーガーにするのを頑張りました！</p>
-                        </div>
-                    </div>
-                    <!-- 他の作品 -->
-                    <div class="gallery-item">
-                        <img src="image/happo-bizn.png" alt="作品2" width="2779" height="1503">
-                        <div class="gallery-item-info">
-                            <h3>DTM個人制作</h3>
-                            <p>19歳の時に個人で制作したボカロ曲です。<br>ボーカルは櫻歌アリスです。</p>
-                            <a href="#modal1" class="button">詳細を見る</a>
-                        </div>
-                    </div>
-                    <div id="modal1" class="modal">
-                        <div class="modal-content">
-                            <span class="close">&times;</span>
-                            <img src="image/happo-bizn.png" alt="作品1">
-                            <h3>DTM個人制作</h3>
-                            <p>この後にLogicProを購入したのですが、一回も楽曲制作をしていません。</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <section id="profile" class="profile">
-            <div class="container">
-                <h2>Profile</h2>
-                <p>Webコーダーのお仕事に興味があります。</p>
-                <h3>スキル</h3>
-                <ul class="skills">
-                    <li>HTML / CSS / JavaScript / PHP</li>
-                    <li>Photoshop / Illustrator</li>
-     </ul>
-                <h3>経歴</h3>
-                <ul class="timeline">
-                    <li>
-                        <h4>2023年 - 現在</h4>
-                        <p>専修学校インターナショナルデザインアカデミー在学中</p>
-                    </li>
-                    <li>
-                        <h4>2023年</h4>
-                        <p>沖縄県立美来工科高校 コンピューターデザイン科卒業</p>
-                    </li>
-                </ul>
-            </div>
-        </section>
-        
-        <section id="contact" class="contact">
-            <div class="container">
-                <h2>Contact</h2>
-                <p>Email: <a href="mailto:thia0907a@gmail.com">thia0907a@gmail.com</a></p>
-            </div>
-        </section>
-    </main>
-    <footer>
-        <div class="container">
-            <small>&copy; 2024 titichan. All rights reserved.</small>
-        </div>
-    </footer>
-    <script src="script.js"></script>
+    <!-- ▼▼▼ PC用ナビゲーション (大画面でのみ表示) ▼▼▼ -->
+    <nav class="header-nav">
+      <ul>
+        <li><a href="#about">ABOUT</a></li>
+        <li><a href="#download">DOWNLOAD</a></li>
+        <li><a href="#demo">DEMO</a></li>
+        <li><a href="#terms">TERMS</a></li>
+        <!-- Twitterへのリンク -->
+        <li><a href="https://twitter.com/YourTwitterID" target="_blank">TWITTER</a></li>
+      </ul>
+    </nav>
+
+    <!-- ▼▼▼ ハンバーガーボタン (小画面でのみ表示) ▼▼▼ -->
+    <div class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </header>
+  
+  <!-- ▼▼▼ 小画面用モーダル ▼▼▼ -->
+  <div class="modal" id="menuModal">
+    <div class="modal-content">
+      <!-- ×ボタン -->
+      <button class="modal-close" id="closeModal">&times;</button>
+
+      <!-- モーダルナビ (小画面用) -->
+      <nav class="modal-nav">
+        <ul>
+          <li><a href="#about">ABOUT</a></li>
+          <li><a href="#download">DOWNLOAD</a></li>
+          <li><a href="#demo">DEMO</a></li>
+          <li><a href="#terms">TERMS</a></li>
+          <!-- Twitterへのリンク -->
+          <li><a href="https://twitter.com/YourTwitterID" target="_blank">TWITTER</a></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+
+  <!-- メインビジュアルセクション -->
+  <section class="hero">
+    <div class="hero-text">
+      <h1>UTAU VOICEBANK AGENE</h1>
+      <p>楽曲制作のモチベをアゲます！♡</p>
+      <!-- ダウンロードセクションへの誘導ボタン -->
+      <a href="#download" class="btn-hero">DOWNLOAD</a>
+    </div>
+  </section>
+
+  <!-- ABOUTセクション -->
+  <section id="about" class="about-section">
+    <h2>ABOUT</h2>
+    <p>
+        Ageneは、titichanの声を使用したフリーの音声ライブラリです。<br>
+        歌声合成ツールUTAUなどでご利用いただけます。
+    </p>
+  </section>
+
+  <!-- DOWNLOADセクション（複数音源対応） -->
+  <section id="download" class="download-section">
+    <h2>DOWNLOAD</h2>
+    <p>以下の音源を自由にダウンロードしてお使いください。<br>※現在サンプルのため実際にDLすることができません。ご了承ください。</p>
+
+    <div class="voicebank-list">
+      <!-- 音源1 -->
+      <article class="voicebank">
+        <h3>STANDARD</h3>
+        <p>通常音源</p>
+        <a href="#" class="btn-download">DOWNLOAD</a>
+      </article>
+      <!-- 音源2 -->
+      <article class="voicebank">
+        <h3>INTEGRATION</h3>
+        <p>統合音源</p>
+        <a href="#" class="btn-download">DOWNLOAD</a>
+      </article>
+      <!-- 音源3 -->
+      <article class="voicebank">
+        <h3>SOFT</h3>
+        <p>弱音源</p>
+        <a href="#" class="btn-download">DOWNLOAD</a>
+      </article>
+      <!-- 必要に応じて追加 -->
+    </div>
+  </section>
+
+  <!-- DEMOセクション -->
+  <section id="demo" class="demo-section">
+    <h2>DEMO</h2>
+    <p>Agene統合音源のデモ動画です。</p>
+    <script type="application/javascript" src="https://embed.nicovideo.jp/watch/sm44032658/script?w=640&h=360"></script><noscript><a href="https://www.nicovideo.jp/watch/sm44032658">【UTAUCover】しりたくない【agene】</a></noscript>
+  </section>
+
+  <!-- 利用規約セクション -->
+  <section id="terms" class="terms-section">
+    <h2>利用規約</h2>
+    <p>
+        本音源は、飴屋/菖蒲様によって配布されているフリー音声合成ソフトのUTAU向けに制作されました。
+        <br>その他のソフト等での利用も可能ですが、その場合不具合等の保証はできません。<br /><br />
+      <h3>禁止事項</h3>
+・政治的表現：全面禁止。<br>
+・宗教的表現：布教・勧誘目的の使用は禁止。新興宗教関連は全面禁止。<br>
+・性的表現：検索避けやワンクッション推奨<br>
+・グロ、暴力表現：検索避けやワンクッション推奨
+    </p>
+    <h3>再利用について</h3>
+    <p>・音源・同梱のイラストについては、公式配布場所からDLできない場合に限り、再配布を許可します。<br>(リンク切れでサイトにダウンロードできなくなった時もOKです！)</p>
+    <h3>免責事項</h3>
+    <p>ライブラリの使用で生じたいかなる損害に対しても、当方は一切責任を負いません。</p>
+    <h3>イラストについて</h3>
+    <p>同梱のイラストは、本音源を使用した動画やサイト等で自由に使用できます。ただし、作者の表記が必要です。<br>
+    ・立ち絵イラスト：さやぴ</p>
+  </section>
+
+  <!-- フッター -->
+  <footer class="site-footer">
+    <p>&copy; 2025 Your UTAU Voicebank. All Rights Reserved.</p>
+  </footer>
+
+  <!-- モーダル表示制御用スクリプト -->
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const menuModal = document.getElementById('menuModal');
+    const closeModalBtn = document.getElementById('closeModal');
+
+    // ハンバーガークリックでモーダルを表示（小画面のみ）
+    hamburger.addEventListener('click', () => {
+      menuModal.classList.add('open');
+    });
+
+    // ×ボタンクリックでモーダルを閉じる
+    closeModalBtn.addEventListener('click', () => {
+      menuModal.classList.remove('open');
+    });
+  </script>
 </body>
 </html>
