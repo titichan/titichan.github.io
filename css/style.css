@@ -17,8 +17,10 @@ left: 285px;
 bottom: 300px;
 }
 .bl_cont_left {
+    width: 100%;
+    font-size: 12px;
 text-align: left;
-    margin: 40px auto 70px;
+    margin: 40px 5px 70px;
 }
     .download-btn {
       display: inline-block;
@@ -38,4 +40,7 @@ text-align: left;
     .download-btn:hover {
       background-color: black;
       color: white;
+    }
+    footer {
+        font-size: 15px;
     }
