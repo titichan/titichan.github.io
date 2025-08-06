@@ -3,127 +3,50 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Agene配布サイト</title>
+  <title>Ageneちゃん置き場</title>
 
-  <!-- Google Fonts（例：Roboto） -->
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link
     href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
     rel="stylesheet"
   />
-
-  <!-- 外部CSSの読み込み -->
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <!-- ヘッダー -->
-  <header class="site-header">
-    <!-- ロゴ -->
-    <div class="logo">
-      <a href="#">
-       <h1>Agene</h1>
-      </a>
-    </div>
+    <div class="ly_inner">
+    <figure class="bl_agene">
+        <img src="img/agene.JPG" width="500px">
+    </figure>
+        <figure class="bl_deformer">
+        <img src="img/deformer.PNG" width="300px">
+    </figure>
 
-    <!-- ▼▼▼ PC用ナビゲーション (大画面でのみ表示) ▼▼▼ -->
-    <nav class="header-nav">
-      <ul>
-        <li><a href="#about">ABOUT</a></li>
-        <li><a href="#download">DOWNLOAD</a></li>
-        <li><a href="#demo">DEMO</a></li>
-        <li><a href="#terms">TERMS</a></li>
-        <!-- Twitterへのリンク -->
-        <li><a href="https://twitter.com/YourTwitterID" target="_blank">TWITTER</a></li>
-      </ul>
-    </nav>
-
-    <!-- ▼▼▼ ハンバーガーボタン (小画面でのみ表示) ▼▼▼ -->
-    <div class="hamburger" id="hamburger">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
+  <header class="bl_header">
+       <h1>
+        <img src="img/agelogo.PNG" width="180px">
+       </h1>
   </header>
-  
-  <!-- ▼▼▼ 小画面用モーダル ▼▼▼ -->
-  <div class="modal" id="menuModal">
-    <div class="modal-content">
-      <!-- ×ボタン -->
-      <button class="modal-close" id="closeModal">&times;</button>
 
-      <!-- モーダルナビ (小画面用) -->
-      <nav class="modal-nav">
-        <ul>
-          <li><a href="#about">ABOUT</a></li>
-          <li><a href="#download">DOWNLOAD</a></li>
-          <li><a href="#demo">DEMO</a></li>
-          <li><a href="#terms">TERMS</a></li>
-          <!-- Twitterへのリンク -->
-          <li><a href="https://twitter.com/_titichan2" target="_blank">TWITTER</a></li>
-        </ul>
-      </nav>
-    </div>
-  </div>
-
-  <!-- メインビジュアルセクション -->
-  <section class="hero">
-    <div class="hero-text">
-      <h1>UTAU VOICEBANK Agene</h1>
-      <p>UTAU向け音声ライブラリ「Agene」配布所</p>
-      <!-- ダウンロードセクションへの誘導ボタン -->
-      <a href="#download" class="btn-hero">DOWNLOAD</a>
+  <section id="download" class="ly_download">
+    <p>あげねちゃんの音源置き場<br>※Mac環境・OoenUTAUテストのみ</p>
+      <article class="bl_vcv">
+        <p>通常5音階＋弱3音階 VCV音源</p>
+        <a href="https://drive.google.com/file/d/1FwzSgNaRX-7djBVa46lQRmFt92bahxDy/view?usp=sharing" class="download-btn">DOWNLOAD</a>
+      </article>
     </div>
   </section>
 
-  <!-- ABOUTセクション -->
-  <section id="about" class="about-section">
-    <h2>ABOUT</h2>
-    <p>
-        Ageneは、titichanの声を使用した<br class="display-none">フリーの音声ライブラリです。<br>
-        歌声合成ツールUTAUなどでご利用いただけます。
-    </p>
-  </section>
-
-  <!-- DOWNLOADセクション（複数音源対応） -->
-  <section id="download" class="download-section">
-    <h2>DOWNLOAD</h2>
-    <p>以下の音源を自由に<br class="display-none">ダウンロードしてお使いください。<br>※現在統合音源のみDL可能です。<br>追記：mac環境で開発を行っていたので、きみがため様のツールを使用してUTAUで使用できるようにいたしました！<br><b>情報提供してくださった方々、誠にありがとうございます！</b><br>これからもAgeneを何卒、よろしくお願いします。
-    </p>
-
-    <div class="voicebank-list">
-      <!-- 音源1 -->
-      <article class="voicebank">
-        <h3>STANDARD</h3>
-        <p>通常VCV音源</p>
-        <a href="#" class="btn-download">DOWNLOAD</a>
-      </article>
-      <!-- 音源2 -->
-      <article class="voicebank">
-        <h3>INTEGRATION</h3>
-        <p>統合VCV音源</p>
-        <a href="https://drive.google.com/file/d/1FwzSgNaRX-7djBVa46lQRmFt92bahxDy/view?usp=sharing" class="btn-download">DOWNLOAD</a>
-      </article>
-      <!-- 音源3 -->
-      <article class="voicebank">
-        <h3>SOFT</h3>
-        <p>弱VCV音源</p>
-        <a href="#" class="btn-download">DOWNLOAD</a>
-      </article>
-      <!-- 必要に応じて追加 -->
-    </div>
-  </section>
-
-  <!-- DEMOセクション -->
-  <section id="demo" class="demo-section">
+  <section id="demo" class="ly_demo">
     <h2>DEMO</h2>
-    <p>Agene統合音源のデモ動画です。</p>
+    <p>あげねちゃんのデモ動画</p>
+
     <script type="application/javascript" src="https://embed.nicovideo.jp/watch/sm44032658/script?w=640&h=360"></script><noscript><a href="https://www.nicovideo.jp/watch/sm44032658">【UTAUCover】しりたくない【agene】</a></noscript>
   </section>
-
-  <!-- 利用規約セクション -->
-  <section id="terms" class="terms-section">
+    </div>
+  <section id="terms" class="ly_terms">
     <h2>利用規約</h2>
+    <div class="bl_cont_left">
     <p>
         本音源は、飴屋/菖蒲様によって配布されているフリー音声合成ソフトのUTAU向けに制作されました。
         <br>その他のソフト等での利用も可能ですが、その場合不具合等の保証はできません。<br /><br />
@@ -140,28 +63,12 @@
     <h3>イラストについて</h3>
     <p>同梱のイラストは、本音源を使用した動画やサイト等で自由に使用できます。ただし、作者の表記が必要です。<br>
     ・立ち絵イラスト：さやぴ</p>
+    </div>
   </section>
 
   <!-- フッター -->
   <footer class="site-footer">
     <p>&copy; 2025 Agene titichan</p>
   </footer>
-
-  <!-- モーダル表示制御用スクリプト -->
-  <script>
-    const hamburger = document.getElementById('hamburger');
-    const menuModal = document.getElementById('menuModal');
-    const closeModalBtn = document.getElementById('closeModal');
-
-    // ハンバーガークリックでモーダルを表示（小画面のみ）
-    hamburger.addEventListener('click', () => {
-      menuModal.classList.add('open');
-    });
-
-    // ×ボタンクリックでモーダルを閉じる
-    closeModalBtn.addEventListener('click', () => {
-      menuModal.classList.remove('open');
-    });
-  </script>
 </body>
 </html>
