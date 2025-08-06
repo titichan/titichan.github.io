@@ -1,5 +1,5 @@
 body {
-    padding-top: 70px;
+    padding-top: 10px;
       font-family: '游明朝','Yu Mincho',YuMincho,'Hiragino Mincho Pro',serif;
     max-width: 1800px;
     text-align: center;
@@ -17,8 +17,7 @@ left: 285px;
 bottom: 300px;
 }
 .bl_cont_left {
-    white-space: nowrap;
-width: 750px;
+max-width: 750px;
 text-align: left;
     margin: 40px auto 70px;
 }
