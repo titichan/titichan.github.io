@@ -1,0 +1,43 @@
+body {
+    padding-top: 70px;
+      font-family: '游明朝','Yu Mincho',YuMincho,'Hiragino Mincho Pro',serif;
+    max-width: 1800px;
+    text-align: center;
+}
+.bl_agene {
+    z-index: -99;
+position: absolute;
+right: 170px;
+bottom: 0;
+}
+.bl_deformer {
+        z-index: -99;
+position: absolute;
+left: 285px;
+bottom: 300px;
+}
+.bl_cont_left {
+    white-space: nowrap;
+width: 750px;
+text-align: left;
+    margin: 40px auto 70px;
+}
+    .download-btn {
+      display: inline-block;
+      padding: 12px 24px;
+      font-size: 20px;
+      font-weight: bold;
+      text-transform: uppercase;
+      background-color: white;
+      color: black;
+      border: 2px solid black;
+      text-align: center;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    .download-btn:hover {
+      background-color: black;
+      color: white;
+    }
