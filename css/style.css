@@ -273,44 +273,37 @@ img { display: block; max-width: 100%; }
  .hero__planet { opacity:.18; }
 }
 
-/* Hero portrait crop: intentionally frame the ORIGINAL illustration as a close-up.
-   Anchor to the top of the source image so the face cannot disappear above the viewport. */
+/* Hero artwork: a dedicated close-up crop of the original illustration.
+   The image fills a fixed portrait frame instead of scaling the full-body art. */
 @media (min-width: 1101px) {
   .hero__figure {
-    left: 47%;
+    left: 45%;
     right: 0;
     top: 0;
-    width: 53%;
+    width: 55%;
     height: 100%;
     overflow: hidden;
-  }
-  .hero__figure img {
-    position: absolute;
-    top: 0;
-    left: -24%;
-    width: auto;
-    height: 190%;
-    max-width: none;
-    object-fit: unset;
-    transform: none;
   }
 }
 @media (min-width: 701px) and (max-width: 1100px) {
   .hero__figure {
-    left: 46%;
+    left: 42%;
     right: 0;
     top: 0;
-    width: 54%;
+    width: 58%;
     height: 100%;
     overflow: hidden;
   }
+}
+@media (min-width: 701px) {
   .hero__figure img {
     position: absolute;
-    top: 0;
-    left: -35%;
-    width: auto;
-    height: 175%;
+    inset: 0;
+    width: 100%;
+    height: 100%;
     max-width: none;
+    object-fit: cover;
+    object-position: center top;
     transform: none;
   }
 }
@@ -318,19 +311,21 @@ img { display: block; max-width: 100%; }
   .hero__figure {
     position: relative;
     top: auto;
-    left: auto;
     right: auto;
+    left: auto;
     width: 100%;
-    height: clamp(330px, 90vw, 540px);
+    height: clamp(350px, 100vw, 540px);
+    margin-top: -26px;
     overflow: hidden;
   }
   .hero__figure img {
     position: absolute;
-    top: 0;
-    left: 50%;
-    width: auto;
-    height: 175%;
+    inset: 0;
+    width: 100%;
+    height: 100%;
     max-width: none;
-    transform: translateX(-50%);
+    object-fit: cover;
+    object-position: center top;
+    transform: none;
   }
 }
