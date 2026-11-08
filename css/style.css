@@ -272,3 +272,65 @@ img { display: block; max-width: 100%; }
  .hero__content { margin-top:0; background:var(--paper); }
  .hero__planet { opacity:.18; }
 }
+
+/* Hero portrait crop: intentionally frame the ORIGINAL illustration as a close-up.
+   Anchor to the top of the source image so the face cannot disappear above the viewport. */
+@media (min-width: 1101px) {
+  .hero__figure {
+    left: 47%;
+    right: 0;
+    top: 0;
+    width: 53%;
+    height: 100%;
+    overflow: hidden;
+  }
+  .hero__figure img {
+    position: absolute;
+    top: 0;
+    left: -24%;
+    width: auto;
+    height: 190%;
+    max-width: none;
+    object-fit: unset;
+    transform: none;
+  }
+}
+@media (min-width: 701px) and (max-width: 1100px) {
+  .hero__figure {
+    left: 46%;
+    right: 0;
+    top: 0;
+    width: 54%;
+    height: 100%;
+    overflow: hidden;
+  }
+  .hero__figure img {
+    position: absolute;
+    top: 0;
+    left: -35%;
+    width: auto;
+    height: 175%;
+    max-width: none;
+    transform: none;
+  }
+}
+@media (max-width: 700px) {
+  .hero__figure {
+    position: relative;
+    top: auto;
+    left: auto;
+    right: auto;
+    width: 100%;
+    height: clamp(330px, 90vw, 540px);
+    overflow: hidden;
+  }
+  .hero__figure img {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: auto;
+    height: 175%;
+    max-width: none;
+    transform: translateX(-50%);
+  }
+}
