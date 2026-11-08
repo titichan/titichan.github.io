@@ -273,47 +273,11 @@ img { display: block; max-width: 100%; }
  .hero__planet { opacity:.18; }
 }
 
-/* Close-up cover: edge-to-edge portrait, softened left seam, inverted header type. */
+/* Portrait composition: preserve the full face while cropping only the crown. */
 @media (min-width: 1101px) {
-  .site-header {
-    background: transparent;
-    isolation: isolate;
-  }
-  .site-header__brand,
-  .site-nav {
-    mix-blend-mode: difference;
-    color: #fff;
-  }
-  .hero {
-    overflow: visible;
-  }
-  .hero__figure {
-    left: 36%;
-    right: 0;
-    top: -74px;
-    width: 64%;
-    height: calc(100% + 74px);
-    overflow: hidden;
-    filter: none;
-    -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 15%, #000 100%);
-    mask-image: linear-gradient(to right, transparent 0%, #000 15%, #000 100%);
-  }
-  .hero__figure img {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    max-width: none;
-    object-fit: cover;
-    object-position: center top;
-    filter: none;
-    -webkit-mask-image: none;
-    mask-image: none;
-    transform: scale(2.1);
-    transform-origin: 53% 41%;
-  }
-}
-@media (min-width: 701px) and (max-width: 1100px) {
+  .site-header { background: var(--paper); isolation: auto; }
+  .site-header__brand, .site-nav { mix-blend-mode: normal; color: var(--ink); }
+  .hero { overflow: hidden; }
   .hero__figure {
     left: 39%;
     right: 0;
@@ -322,8 +286,8 @@ img { display: block; max-width: 100%; }
     height: 100%;
     overflow: hidden;
     filter: none;
-    -webkit-mask-image: linear-gradient(to right, transparent, #000 17%, #000);
-    mask-image: linear-gradient(to right, transparent, #000 17%, #000);
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 21%, #000 100%);
+    mask-image: linear-gradient(to right, transparent 0%, #000 21%, #000 100%);
   }
   .hero__figure img {
     position: absolute;
@@ -336,8 +300,35 @@ img { display: block; max-width: 100%; }
     filter: none;
     -webkit-mask-image: none;
     mask-image: none;
-    transform: scale(1.85);
-    transform-origin: 55% 38%;
+    transform: translateY(-72px) scale(1.75);
+    transform-origin: 53% 0%;
+  }
+}
+@media (min-width: 701px) and (max-width: 1100px) {
+  .hero__figure {
+    left: 40%;
+    right: 0;
+    top: 0;
+    width: 60%;
+    height: 100%;
+    overflow: hidden;
+    filter: none;
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 22%, #000 100%);
+    mask-image: linear-gradient(to right, transparent 0%, #000 22%, #000 100%);
+  }
+  .hero__figure img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    object-fit: cover;
+    object-position: center top;
+    filter: none;
+    -webkit-mask-image: none;
+    mask-image: none;
+    transform: translateY(-30px) scale(1.6);
+    transform-origin: 52% 0%;
   }
 }
 @media (max-width: 700px) {
@@ -364,7 +355,7 @@ img { display: block; max-width: 100%; }
     filter: none;
     -webkit-mask-image: none;
     mask-image: none;
-    transform: scale(1.65);
-    transform-origin: 52% 38%;
+    transform: scale(1.5);
+    transform-origin: 52% 0%;
   }
 }
