@@ -251,8 +251,8 @@ img { display: block; max-width: 100%; }
 .section__header h2 { font-style:normal; font-weight:400; letter-spacing:.1em; font-size:clamp(40px,5vw,78px); }
 .character__art { background:transparent; border:0; }
 @media(min-width:1101px) {
- .hero__figure { left:33%; top:-32%; height:166%; width:67%; right:auto; }
- .hero__figure img { height:100%; width:auto; max-width:none; }
+ .hero__figure { left:43%; top:0; height:155%; width:57%; right:auto; justify-content:flex-start; }
+ .hero__figure img { display:block; height:100%; width:auto; max-width:none; object-fit:contain; object-position:top left; }
  .hero__heading { width:min(39vw,580px); top:30%; }
  .hero__kana { top:91%; left:42%; }
  .hero__content { top:56%; width:min(330px,29vw); }
@@ -260,14 +260,14 @@ img { display: block; max-width: 100%; }
  .hero__star--one { left:52%; }
 }
 @media(min-width:701px) and (max-width:1100px) {
- .hero__figure { left:31%; right:auto; top:-15%; height:140%; width:69%; }
+ .hero__figure { left:42%; right:auto; top:0; height:130%; width:58%; }
  .hero__heading { top:27%; width:45vw; }
  .hero__content { bottom:8%; }
 }
 @media(max-width:700px) {
  .hero__heading { margin-top:65px; }
  .hero__figure { height:clamp(370px,105vw,610px); }
- .hero__figure img { height:160%; transform:translateY(-7%); }
+ .hero__figure img { height:145%; transform:none; object-position:top center; }
  .hero__tagline { font-size:20px; }
  .hero__content { margin-top:0; background:var(--paper); }
  .hero__planet { opacity:.18; }
