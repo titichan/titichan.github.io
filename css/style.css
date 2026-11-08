@@ -304,7 +304,8 @@ img { display: block; max-width: 100%; }
     max-width: none;
     object-fit: cover;
     object-position: center top;
-    transform: none;
+    transform: scale(1.75);
+    transform-origin: 43% 0%;
   }
 }
 @media (max-width: 700px) {
@@ -326,6 +327,7 @@ img { display: block; max-width: 100%; }
     max-width: none;
     object-fit: cover;
     object-position: center top;
-    transform: none;
+    transform: scale(1.5);
+    transform-origin: 50% 0%;
   }
 }
