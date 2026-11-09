@@ -1,0 +1,5 @@
+Boska Regular Italic — Indian Type Foundry (ITF), via Fontshare.
+https://www.fontshare.com/fonts/boska
+License: https://www.fontshare.com/terms
+Used for outlined SVG display lettering in img/type/. Font binary is not redistributed.
+This Font Software is protected under domestic and international trademark and copyright law. You agree to identify the ITF fonts by name and credit the ITF's ownership of the trademarks and copyrights in any design or production credits.

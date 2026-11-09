@@ -1,74 +1,102 @@
-<!DOCTYPE html>
+<!doctype html>
+<!--
+
+　　　　　 　　≼◉≽≼◉≽≼◉≽
+　　 　　　 ≼◉≽≼◉≽≼◉≽≼◉≽≼◉≽
+　　　　 　≼◉≽≼◉≽◞≼◉≽◟≼◉≽≼◉≽　 ｱﾋｬ
+　　　　 ≼◉≽≼◉≽≼◉≽≼◉≽≼◉≽≼◉≽
+　　　　 　 ≼◉≽≼◉≽ ≼◉≽≼◉≽≼◉≽ 　　　ｱﾋｬ
+　　　　　　 ≼◉≽ ≼◉≽≼◉≽≼◉≽
+　　 　 　 　 ≼◉≽≼◉≽≼◉≽
+　　　　　　　≼◉≽≼◉≽≼◉≽
+.　　　　≼◉≽≼◉≽ ≼◉≽≼◉≽≼◉≽　　ｱﾋｬ
+　　　≼◉≽≼◉≽≼◉≽ ≼◉≽≼◉≽≼◉≽
+　　≼◉≽≼◉≽≼◉≽≼◉≽ ≼◉≽≼◉≽
+　　≼◉≽≼◉≽ ≼◉≽≼◉≽≼◉≽≼◉≽≼◉≽
+
+                 深淵を覗くとき、深淵もまたこちらを覗いているのだ
+
+-->
 <html lang="ja">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Ageneちゃん置き場</title>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
-    rel="stylesheet"
-  />
-  <link rel="stylesheet" href="css/style.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="UTAU音源「agene（あげね）」の公式サイト。連続音（VCV）音源のダウンロード、デモ動画、利用規約を掲載しています。">
+<meta name="theme-color" content="#f7f8fb">
+<link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png?v=20261109-12">
+<link rel="icon" type="image/png" sizes="512x512" href="img/favicon-512.png?v=20261109-12">
+<link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png?v=20261109-12">
+<title>agene（あげね）｜UTAU音源公式サイト</title>
+<link rel="preload" href="fonts/CormorantGaramond-Italic.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/DMMono-Regular.ttf" as="font" type="font/ttf" crossorigin>
+<link rel="preload" href="img/agene-portrait-full-head.png" as="image" media="(max-width:1100px)" fetchpriority="high">
+<link rel="stylesheet" href="css/style.css?v=20261109-80">
+<script src="js/main.js?v=20261109-58" defer></script>
 </head>
 <body>
-    <!--<div class="ly_inner">
-    <figure class="bl_agene">
-        <img src="img/agene.JPG" width="500px">
-    </figure>
-        <figure class="bl_deformer">
-        <img src="img/deformer.PNG" width="300px">
-    </figure>
+<div class="load-intro" aria-hidden="true">
+<div class="load-intro__mark">
+<img class="load-intro__star" src="img/asterisk.svg" width="26" height="39" alt="">
+<img class="load-intro__logo" src="img/type/agene.svg" width="2403" height="744" alt="">
+<span class="load-intro__label">UTAU VOICE LIBRARY</span>
+<span class="load-intro__line"></span>
 </div>
-!-->
-  <header class="bl_header">
-       <h1>
-        <img src="img/agelogo.PNG" width="180px">
-       </h1>
-  </header>
+</div>
+<noscript><style>.load-intro{display:none}</style></noscript>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+<a class="brand" href="#top" aria-label="agene トップへ"><span class="brand-star" aria-hidden="true"><img loading="eager" src="img/asterisk.svg" width="26" height="39" alt=""></span><span class="brand-name"><img loading="eager" src="img/type/agene.svg" alt="agene." width="2403" height="744"></span><span class="brand-description">UTAU VOICE LIBRARY</span></a>
+<button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav" hidden>MENU <span aria-hidden="true">＋</span></button>
+<nav class="site-nav" id="site-nav" aria-label="メインナビゲーション">
+<a href="#character">character.</a><a href="#voicebank">voicebank.</a><a href="#demo">demo.</a><a href="#terms">terms.</a>
+</nav>
+</header>
+<main id="main">
+<section class="hero" id="top" aria-labelledby="hero-title">
+<img loading="eager" class="hero-moon" src="img/moon-isolated.png" alt="" width="1254" height="1254">
+<picture>
+<source media="(max-width:1100px)" srcset="img/agene-portrait-full-head.png" width="1234" height="1275">
+<img loading="eager" class="hero-portrait" src="img/agene-portrait-cutout.png" alt="ageneのポートレート" width="1346" height="1168" fetchpriority="high">
+</picture>
+<div class="hero-plus-field" aria-hidden="true"></div>
+<div class="hero-copy">
+<h1 id="hero-title"><img loading="eager" class="type-art" src="img/type/agene.svg" alt="agene." width="2403" height="744"></h1>
+<p class="eyebrow hero-descriptor">UTAU VOICE LIBRARY</p>
+<p class="eyebrow hero-spec">VCV / NORMAL + SOFT</p>
+<a class="button button--dark hero-button" href="#voicebank">EXPLORE VOICEBANK <span aria-hidden="true">↓</span></a>
+</div>
+</section>
+<section class="section character" id="character" aria-labelledby="character-title">
+<div class="section-heading"><p class="eyebrow">02 / IDENTITY</p><h2 id="character-title"><img loading="lazy" class="type-art" src="img/type/character.svg" alt="character." width="3790" height="784"></h2></div>
+<div class="character-layout">
+<figure class="character-art"><img src="img/agene-hero.webp" width="1365" height="2048" alt="ageneの立ち絵。イラスト：さやぴ" loading="lazy"></figure>
+<div class="character-info"><p class="display-name"><img loading="lazy" class="type-art" src="img/type/agene.svg" alt="agene." width="2403" height="744"></p><p class="eyebrow">UTAU VOICE LIBRARY</p><span class="short-rule" aria-hidden="true"></span><p class="credit">立ち絵イラスト：さやぴ</p><img class="chibi chibi--stand" src="img/chibi-stand.svg" width="434" height="724" loading="lazy" alt=""></div>
+</div></section>
+<section class="section voicebank" id="voicebank" aria-labelledby="voicebank-title">
+<div class="heading-with-wave"><div class="section-heading"><p class="eyebrow">03 / VOICEBANK</p><h2 id="voicebank-title"><img loading="lazy" class="type-art" src="img/type/voicebank.svg" alt="voicebank." width="4122" height="784"></h2></div><svg class="wave" viewBox="0 0 360 100" aria-hidden="true" focusable="false"><path d="M3 47.92v4.16"/><path d="M8 48.32v3.36"/><path d="M13 47.44v5.11"/><path d="M18 47.63v4.73"/><path d="M23 46.59v6.81"/><path d="M28 45.67v8.67"/><path d="M33 45.31v9.38"/><path d="M38 42.32v15.36"/><path d="M43 42.83v14.33"/><path d="M48 38.46v23.07"/><path d="M53 37.22v25.56"/><path d="M58 36.40v27.20"/><path d="M63 32.43v35.13"/><path d="M68 37.40v25.19"/><path d="M73 31.75v36.51"/><path d="M78 34.87v30.25"/><path d="M83 35.57v28.85"/><path d="M88 35.92v28.15"/><path d="M93 40.95v18.10"/><path d="M98 39.17v21.66"/><path d="M103 42.36v15.28"/><path d="M108 41.92v16.15"/><path d="M113 41.95v16.10"/><path d="M118 43.07v13.87"/><path d="M123 40.10v19.81"/><path d="M128 41.54v16.93"/><path d="M133 37.45v25.10"/><path d="M138 36.29v27.42"/><path d="M143 35.68v28.63"/><path d="M148 30.69v38.63"/><path d="M153 35.16v29.68"/><path d="M158 27.17v45.66"/><path d="M163 28.74v42.51"/><path d="M168 27.59v44.81"/><path d="M173 24.66v50.67"/><path d="M178 31.74v36.53"/><path d="M183 25.01v49.97"/><path d="M188 30.61v38.78"/><path d="M193 29.61v40.79"/><path d="M198 30.77v38.46"/><path d="M203 36.15v27.70"/><path d="M208 34.10v31.81"/><path d="M213 39.60v20.79"/><path d="M218 38.91v22.18"/><path d="M223 41.04v17.92"/><path d="M228 43.25v13.50"/><path d="M233 42.98v14.04"/><path d="M238 45.60v8.80"/><path d="M243 44.18v11.64"/><path d="M248 44.64v10.73"/><path d="M253 44.03v11.93"/><path d="M258 42.10v15.81"/><path d="M263 43.33v13.33"/><path d="M268 38.92v22.17"/><path d="M273 39.70v20.59"/><path d="M278 37.82v24.37"/><path d="M283 37.05v25.90"/><path d="M288 40.21v19.57"/><path d="M293 38.23v23.54"/><path d="M298 42.23v15.55"/><path d="M303 42.16v15.67"/><path d="M308 43.97v12.07"/><path d="M313 45.90v8.20"/><path d="M318 46.07v7.86"/><path d="M323 47.76v4.48"/><path d="M328 47.44v5.12"/><path d="M333 47.96v4.09"/><path d="M338 48.15v3.70"/><path d="M343 47.97v4.07"/><path d="M348 48.61v2.78"/><path d="M353 48.01v3.99"/><path d="M358 48.33v3.33"/></svg></div>
+<p class="intro">あげねちゃんの音源置き場</p>
+<div class="release-layout"><picture class="voicebank-mascot"><img class="chibi chibi--present" src="img/agene-present.png" width="1050" height="1498" loading="lazy" alt=""></picture><div class="releases">
+<article class="release release--available"><p class="eyebrow release-index">01 / COMPLETE</p><div class="release-copy"><h3>NORMAL + SOFT</h3><p>通常5音階＋弱3音階 VCV音源</p></div><a class="button button--dark" href="https://drive.google.com/file/d/1FwzSgNaRX-7djBVa46lQRmFt92bahxDy/view?usp=sharing" target="_blank" rel="noopener noreferrer" aria-label="通常＋弱セットをGoogle Driveからダウンロード（新しいタブ）">DOWNLOAD <span aria-hidden="true">↗</span></a></article>
+<article class="release"><p class="eyebrow release-index">02 / NORMAL</p><div class="release-copy"><h3>NORMAL</h3><p>通常音源</p></div><p class="release-status"><span lang="en">PLANNED</span><span aria-hidden="true"> / </span>準備中</p></article>
+<article class="release"><p class="eyebrow release-index">03 / SOFT</p><div class="release-copy"><h3>SOFT</h3><p>弱音源</p></div><p class="release-status"><span lang="en">PLANNED</span><span aria-hidden="true"> / </span>準備中</p></article>
+<p class="environment-note">※Mac環境・OpenUTAUテストのみ</p>
+</div></div></section>
+<section class="section demo" id="demo" aria-labelledby="demo-title">
+<div class="demo-heading"><div class="section-heading"><p class="eyebrow">04 / DEMO</p><h2 id="demo-title"><img loading="lazy" class="type-art" src="img/type/demo.svg" alt="demo." width="2297" height="784"></h2></div><div><h3 class="demo-title">【UTAUCover】しりたくない【agene】</h3><p class="intro">あげねちゃんのデモ動画</p></div></div>
+<div class="demo-layout"><div class="demo-player-group"><div class="demo-player" id="demo-player"><a class="demo-cover" href="https://www.nicovideo.jp/watch/sm44032658" target="_blank" rel="noopener noreferrer" aria-label="しりたくないをニコニコ動画で見る（新しいタブ）"><img loading="lazy" src="img/eyes.webp" alt="" width="900" height="506"><span class="play-icon" aria-hidden="true">▷</span><span class="play-label">PLAY ON NICOVIDEO ↗</span></a></div>
 
-  <section id="download" class="ly_download">
-    <p>あげねちゃんの音源置き場<br>※Mac環境・OpenUTAUテストのみ</p>
-      <article class="bl_vcv">
-        <p>通常5音階＋弱3音階 VCV音源</p>
-        <a href="https://drive.google.com/file/d/1FwzSgNaRX-7djBVa46lQRmFt92bahxDy/view?usp=sharing" class="download-btn">DOWNLOAD</a>
-      </article>
-  </section>
-
-  <section id="demo" class="ly_demo">
-    <h2>DEMO</h2>
-    <p>あげねちゃんのデモ動画</p>
-
-    <script type="application/javascript" src="https://embed.nicovideo.jp/watch/sm44032658/script?w=640&h=360"></script><noscript><a href="https://www.nicovideo.jp/watch/sm44032658">【UTAUCover】しりたくない【agene】</a></noscript>
-  </section>
-    </div>
-  <section id="terms" class="ly_terms">
-        <div class="bl_cont_left">
-    <h2>利用規約</h2>
-    <p>
-        本音源は、飴屋/菖蒲様によって配布されているフリー音声合成ソフトのUTAU向けに制作されました。
-        <br>その他のソフト等での利用も可能ですが、その場合不具合等の保証はできません。<br /><br />
-      <h3>禁止事項</h3>
-・政治的表現：全面禁止。<br>
-・宗教的表現：布教・勧誘目的の使用は禁止。新興宗教関連は全面禁止。<br>
-・性的表現：検索避けやワンクッション推奨<br>
-・グロ、暴力表現：検索避けやワンクッション推奨
-    </p>
-    <h3>再利用について</h3>
-    <p>・音源・同梱のイラストについては、公式配布場所からDLできない場合に限り、再配布を許可します。</p>
-    <h3>免責事項</h3>
-    <p>ライブラリの使用で生じたいかなる損害に対しても、当方は一切責任を負いません。</p>
-    <h3>イラストについて</h3>
-    <p>同梱のイラストは、本音源を使用した動画やサイト等で自由に使用できます。ただし、作者の表記が必要です。<br>
-    ・立ち絵イラスト：さやぴ</p>
-    </div>
-  </section>
-
-  <!-- フッター -->
-  <footer class="site-footer">
-    <p>&copy; 2025 Agene titichan</p>
-  </footer>
-</body>
-</html>
+<a class="text-link" href="https://www.nicovideo.jp/watch/sm44032658" target="_blank" rel="noopener noreferrer">ニコニコ動画で見る <span aria-hidden="true">↗</span></a></div><img class="chibi chibi--listen" src="img/chibi-listen.svg" width="455" height="724" loading="lazy" alt=""></div></section>
+<section class="section terms" id="terms" aria-labelledby="terms-title"><div class="terms-layout"><div class="terms-aside"><div class="section-heading"><p class="eyebrow">05 / TERMS</p><h2 id="terms-title"><img loading="lazy" class="type-art" src="img/type/terms.svg" alt="terms." width="2322" height="640"></h2></div><img class="chibi chibi--read" src="img/chibi-read.svg" width="440" height="724" loading="lazy" alt=""></div><div class="terms-content"><p class="terms-subtitle">利用規約</p>
+        <p>本音源は、飴屋/菖蒲様によって配布されているフリー音声合成ソフトのUTAU向けに制作されました。<br>その他のソフト等での利用も可能ですが、その場合不具合等の保証はできません。</p>
+        <h3>禁止事項</h3>
+        <p>・政治的表現：全面禁止。<br>・宗教的表現：布教・勧誘目的の使用は禁止。新興宗教関連は全面禁止。<br>・性的表現：検索避けやワンクッション推奨<br>・グロ、暴力表現：検索避けやワンクッション推奨</p>
+        <h3>再利用について</h3>
+        <p>・音源・同梱のイラストについては、公式配布場所からDLできない場合に限り、再配布を許可します。</p>
+        <h3>免責事項</h3>
+        <p>ライブラリの使用で生じたいかなる損害に対しても、当方は一切責任を負いません。</p>
+        <h3>イラストについて</h3>
+        <p>同梱のイラストは、本音源を使用した動画やサイト等で自由に使用できます。<br>立ち絵イラストを使用する場合は、作者名「さやぴ」の表記をお願いします。<br>立ち絵イラスト以外の公式イラストは、AIサービス・AIツールへの読み込みおよび使用も可能です。使用時のクレジット表記は不要です。</p>
+      </div></div></section>
+</main>
+<footer class="site-footer"><a class="footer-logo" href="#top" aria-label="agene トップへ"><img loading="lazy" class="type-art" src="img/type/agene.svg" alt="agene." width="2403" height="744"></a><small>© 2025 Agene titichan</small><a class="back-top eyebrow" href="#top"><span>BACK TO TOP <span aria-hidden="true">↑</span></span></a><img class="chibi chibi--bow" src="img/agene-bow.png" width="1199" height="1312" loading="lazy" alt=""></footer>
+</body></html>
