@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">agene.</title>
+  <desc id="desc">ageneの顔を画面いっぱいに捉えたクローズアップ</desc>
+  <defs>
+    <clipPath id="canvas"><rect width="1200" height="630"/></clipPath>
+    <filter id="logo-white" color-interpolation-filters="sRGB">
+      <feFlood flood-color="#f7f8fb" result="color"/>
+      <feComposite in="color" in2="SourceAlpha" operator="in"/>
+    </filter>
+  </defs>
+  <g clip-path="url(#canvas)">
+    <rect width="1200" height="630" fill="#eef1f6"/>
+    <image href="agene-portrait-full-head.png" x="44" y="-260" width="1113" height="1150"/>
+    <image href="type/agene.svg" x="700" y="78" width="290" height="90" filter="url(#logo-white)" opacity=".88" transform="rotate(-5 845 123)"/>
+  </g>
+</svg>

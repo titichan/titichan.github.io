@@ -14,8 +14,50 @@ document.querySelectorAll('.wave path').forEach((bar, index) => {
   bar.style.setProperty('--wave-peak-b', peakB.toFixed(2));
   bar.style.setProperty('--wave-accent', accent.toFixed(2));
 });
+const samplePlayers = [...document.querySelectorAll('.voice-sample-player')];
+const formatSampleTime = seconds => {
+  const safeSeconds = Number.isFinite(seconds) ? Math.max(0, Math.floor(seconds)) : 0;
+  return `${String(Math.floor(safeSeconds / 60)).padStart(2, '0')}:${String(safeSeconds % 60).padStart(2, '0')}`;
+};
+samplePlayers.forEach(player => {
+  const audio = player.querySelector('audio');
+  const button = player.querySelector('.sample-play');
+  const progress = player.querySelector('.sample-timeline span');
+  const time = player.querySelector('.sample-time');
+  const playLabel = button.getAttribute('aria-label');
+  const updateProgress = () => {
+    const duration = Number.isFinite(audio.duration) ? audio.duration : 25;
+    const ratio = duration > 0 ? Math.min(audio.currentTime / duration, 1) : 0;
+    progress.style.clipPath = `inset(0 ${((1 - ratio) * 100).toFixed(3)}% 0 0)`;
+    time.textContent = `${formatSampleTime(audio.currentTime)} / ${formatSampleTime(duration)}`;
+  };
+  const updatePlaybackState = () => {
+    const playing = !audio.paused && !audio.ended;
+    player.classList.toggle('is-playing', playing);
+    button.textContent = playing ? 'PAUSE' : 'PLAY';
+    button.setAttribute('aria-pressed', String(playing));
+    button.setAttribute('aria-label', playing ? playLabel.replace('再生', '一時停止') : playLabel);
+  };
+  button.addEventListener('click', () => {
+    if (audio.paused) audio.play().catch(() => updatePlaybackState());
+    else audio.pause();
+  });
+  audio.addEventListener('play', () => {
+    samplePlayers.forEach(otherPlayer => {
+      const otherAudio = otherPlayer.querySelector('audio');
+      if (otherAudio !== audio) otherAudio.pause();
+    });
+    updatePlaybackState();
+  });
+  audio.addEventListener('pause', updatePlaybackState);
+  audio.addEventListener('ended', updatePlaybackState);
+  audio.addEventListener('loadedmetadata', updateProgress);
+  audio.addEventListener('timeupdate', updateProgress);
+  updatePlaybackState();
+});
 const heroPlusField = document.querySelector('.hero-plus-field');
 if (heroPortrait && heroPlusField) {
+  const heroHoverMedia = window.matchMedia('(min-width: 701px) and (hover: hover) and (pointer: fine)');
   const plusCount = 64;
   const plusFragment = document.createDocumentFragment();
   for (let index = 0; index < plusCount; index += 1) {
@@ -36,8 +78,13 @@ if (heroPortrait && heroPlusField) {
     plusFragment.append(plus);
   }
   heroPlusField.append(plusFragment);
-  heroPortrait.addEventListener('mouseenter', () => heroPlusField.classList.add('is-active'));
+  heroPortrait.addEventListener('mouseenter', () => {
+    if (heroHoverMedia.matches) heroPlusField.classList.add('is-active');
+  });
   heroPortrait.addEventListener('mouseleave', () => heroPlusField.classList.remove('is-active'));
+  heroHoverMedia.addEventListener('change', event => {
+    if (!event.matches) heroPlusField.classList.remove('is-active');
+  });
 }
 
 const loadIntro = document.querySelector('.load-intro');
@@ -69,11 +116,32 @@ const toggle = document.querySelector('.menu-toggle');
 const navigation = document.querySelector('.site-nav');
 const navigationLinks = navigation.querySelectorAll('a');
 toggle.hidden = false;
+let menuCloseTimer;
+const finishMenuClose = () => {
+  window.clearTimeout(menuCloseTimer);
+  navigation.classList.remove('is-closing');
+};
 const setMenuOpen = open => {
-  navigation.classList.toggle('is-open', open);
   toggle.setAttribute('aria-expanded', String(open));
+  if (open) {
+    finishMenuClose();
+    navigation.classList.add('is-open');
+    return;
+  }
+  const shouldAnimate = navigation.classList.contains('is-open')
+    && window.matchMedia('(max-width: 700px)').matches
+    && !reducedMotion.matches;
+  navigation.classList.remove('is-open');
+  navigation.classList.toggle('is-closing', shouldAnimate);
+  window.clearTimeout(menuCloseTimer);
+  if (shouldAnimate) menuCloseTimer = window.setTimeout(finishMenuClose, 540);
 };
 const closeMenu = () => setMenuOpen(false);
+navigation.addEventListener('animationend', event => {
+  if (event.target === navigation && event.animationName === 'mobile-menu-close') {
+    finishMenuClose();
+  }
+});
 toggle.addEventListener('click', () => {
   const open = toggle.getAttribute('aria-expanded') !== 'true';
   setMenuOpen(open);
