@@ -1767,7 +1767,6 @@ img.chibi {
   pointer-events:auto;
   isolation:isolate;
   background:linear-gradient(145deg,#252935,#31394b 68%,#3b485f);
-  animation:load-intro-shell 3.25s cubic-bezier(.4,0,.2,1) forwards;
 }
 .load-intro__mark {
   position:relative;
@@ -1778,7 +1777,7 @@ img.chibi {
   gap:14px 20px;
   color:#fff;
   will-change:transform,opacity,filter;
-  animation:load-intro-mark 2.6s cubic-bezier(.22,.65,.28,1) both;
+  animation:load-intro-mark-in .9s cubic-bezier(.22,.65,.28,1) both;
 }
 .load-intro__star {
   grid-column:1;
@@ -1809,18 +1808,27 @@ img.chibi {
   transform-origin:left;
   animation:load-intro-line 1.5s cubic-bezier(.22,.65,.28,1) .32s both;
 }
-@keyframes load-intro-mark {
-  0% { opacity:0; filter:blur(7px); transform:translateY(16px) scale(.985); }
-  30%,64% { opacity:.9; filter:blur(0); transform:translateY(0) scale(1); }
-  100% { opacity:0; filter:blur(4px); transform:translateY(-7px) scale(1.008); }
+@keyframes load-intro-mark-in {
+  from { opacity:0; filter:blur(7px); transform:translateY(16px) scale(.985); }
+  to { opacity:.9; filter:blur(0); transform:translateY(0) scale(1); }
 }
 @keyframes load-intro-line {
   from { opacity:0; transform:scaleX(0); }
   to { opacity:1; transform:scaleX(1); }
 }
-@keyframes load-intro-shell {
-  0%,62% { opacity:1; visibility:visible; }
-  100% { opacity:0; visibility:hidden; pointer-events:none; }
+.load-intro.is-leaving {
+  animation:load-intro-shell-out .78s cubic-bezier(.4,0,.2,1) forwards;
+}
+.load-intro.is-leaving .load-intro__mark {
+  animation:load-intro-mark-out .68s cubic-bezier(.4,0,.2,1) forwards;
+}
+@keyframes load-intro-mark-out {
+  from { opacity:.9; filter:blur(0); transform:translateY(0) scale(1); }
+  to { opacity:0; filter:blur(4px); transform:translateY(-7px) scale(1.008); }
+}
+@keyframes load-intro-shell-out {
+  from { opacity:1; visibility:visible; }
+  to { opacity:0; visibility:hidden; pointer-events:none; }
 }
 @media(max-width:700px) {
   .load-intro {

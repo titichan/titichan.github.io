@@ -3,6 +3,7 @@ document.documentElement.classList.add('js');
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 const siteHeader = document.querySelector('.site-header');
 const heroPortrait = document.querySelector('.hero-portrait');
+const heroMoon = document.querySelector('.hero-moon');
 const heroCopy = document.querySelector('.hero-copy');
 
 document.querySelectorAll('.wave path').forEach((bar, index) => {
@@ -88,7 +89,6 @@ if (heroPortrait && heroPlusField) {
 }
 
 const loadIntro = document.querySelector('.load-intro');
-const introStartedAt = performance.now();
 let introReady = !loadIntro || reducedMotion.matches;
 const introQueue = [];
 const afterIntro = callback => {
@@ -97,19 +97,38 @@ const afterIntro = callback => {
 };
 if (loadIntro) {
   let introRemoved = false;
+  let introFallbackTimer;
   const removeIntro = () => {
     if (introRemoved) return;
     introRemoved = true;
+    window.clearTimeout(introFallbackTimer);
     loadIntro.remove();
     introReady = true;
     introQueue.splice(0).forEach(callback => callback());
   };
+  const waitForImage = image => {
+    if (!image) return Promise.resolve();
+    const decode = () => image.decode?.().catch(() => undefined) ?? Promise.resolve();
+    if (image.complete) return decode();
+    return new Promise(resolve => {
+      image.addEventListener('load', resolve, { once: true });
+      image.addEventListener('error', resolve, { once: true });
+    }).then(decode);
+  };
+  const leaveIntro = () => {
+    if (introRemoved || loadIntro.classList.contains('is-leaving')) return;
+    loadIntro.classList.add('is-leaving');
+    introFallbackTimer = window.setTimeout(removeIntro, 1200);
+  };
   if (reducedMotion.matches) removeIntro();
   else {
     loadIntro.addEventListener('animationend', event => {
-      if (event.target === loadIntro) removeIntro();
+      if (event.target === loadIntro && event.animationName === 'load-intro-shell-out') removeIntro();
     });
-    window.setTimeout(removeIntro, 4100);
+    const minimumDisplay = new Promise(resolve => window.setTimeout(resolve, 1800));
+    const criticalAssets = Promise.all([waitForImage(heroPortrait), waitForImage(heroMoon)]);
+    const maximumWait = new Promise(resolve => window.setTimeout(resolve, 8000));
+    Promise.all([minimumDisplay, Promise.race([criticalAssets, maximumWait])]).then(leaveIntro);
   }
 }
 const toggle = document.querySelector('.menu-toggle');
@@ -227,10 +246,7 @@ const revealHero = () => {
     enterOnce(heroCopy, { distance: 10, startOpacity: 0.01, delay: 480, blur: 5, scale: 0.998, duration: 2300 });
   };
   if (!loadIntro || reducedMotion.matches || introReady) run();
-  else {
-    const remaining = Math.max(0, 1750 - (performance.now() - introStartedAt));
-    window.setTimeout(run, remaining);
-  }
+  else afterIntro(run);
 };
 if (heroPortrait?.complete) revealHero();
 else heroPortrait?.addEventListener('load', revealHero, { once: true });
