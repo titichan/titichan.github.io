@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="512" height="512" viewBox="0 0 512 512">
+  <title>agene. moon icon</title>
+  <image x="12" y="12" width="488" height="488" xlink:href="moon-isolated.png"/>
+  <path
+    fill="#252935"
+    stroke="#252935"
+    stroke-width="7.5"
+    stroke-linejoin="round"
+    paint-order="stroke fill"
+    opacity=".9"
+    transform="translate(126 380) scale(.51)"
+    d="M318 -87Q299 -43 264 -16.5Q229 10 183 10Q111 10 74 -36.5Q37 -83 37 -164Q37 -246 63.5 -320Q90 -394 147 -444.5Q204 -495 279 -495Q356 -495 384 -439L392 -485H455L381 -65Q377 -36 377 -26Q377 -8 397 -8H442L441 0H357Q316 0 316 -29Q316 -42 327 -108ZM103 -154Q103 -122 106 -100Q109 -78 118 -54Q127 -30 148.5 -17.5Q170 -5 202 -5Q235 -5 265.5 -30Q296 -55 311 -92L333 -144L381 -422Q359 -483 287 -483Q238 -483 200.5 -450.5Q163 -418 143 -367Q123 -316 113 -261.5Q103 -207 103 -154Z"
+  />
+</svg>
