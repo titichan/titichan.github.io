@@ -6,6 +6,18 @@ const heroPortrait = document.querySelector('.hero-portrait');
 const heroMoon = document.querySelector('.hero-moon');
 const heroCopy = document.querySelector('.hero-copy');
 
+if (heroMoon) {
+  const showHeroMoon = () => heroMoon.classList.add('is-loaded');
+  if (heroMoon.complete) {
+    const decoding = heroMoon.decode?.();
+    if (decoding) decoding.catch(() => undefined).finally(showHeroMoon);
+    else showHeroMoon();
+  } else {
+    heroMoon.addEventListener('load', showHeroMoon, { once: true });
+    heroMoon.addEventListener('error', showHeroMoon, { once: true });
+  }
+}
+
 document.querySelectorAll('.wave path').forEach((bar, index) => {
   const peakA = 1.12 + ((index * 7) % 8) * 0.065;
   const peakB = 1 + ((index * 11) % 9) * 0.065;
@@ -126,7 +138,7 @@ if (loadIntro) {
       if (event.target === loadIntro && event.animationName === 'load-intro-shell-out') removeIntro();
     });
     const minimumDisplay = new Promise(resolve => window.setTimeout(resolve, 1800));
-    const criticalAssets = Promise.all([waitForImage(heroPortrait), waitForImage(heroMoon)]);
+    const criticalAssets = waitForImage(heroPortrait);
     const maximumWait = new Promise(resolve => window.setTimeout(resolve, 8000));
     Promise.all([minimumDisplay, Promise.race([criticalAssets, maximumWait])]).then(leaveIntro);
   }
@@ -240,13 +252,12 @@ function revealWhenReady(element, options) {
   ]).then(() => enterOnce(element, options));
 }
 const revealHero = () => {
-  const run = () => {
-    enterOnce(siteHeader, { distance: -3, startOpacity: 0.16, blur: 3, scale: 0.999, duration: 1750 });
-    enterOnce(heroPortrait, { distance: 3, distanceX: 24, startOpacity: 0.035, delay: 240, blur: 4, scale: 0.997, duration: 2450 });
-    enterOnce(heroCopy, { distance: 10, startOpacity: 0.01, delay: 480, blur: 5, scale: 0.998, duration: 2300 });
-  };
-  if (!loadIntro || reducedMotion.matches || introReady) run();
-  else afterIntro(run);
+  // The loading intro is already the hero reveal. Running the entrance again
+  // after the overlay leaves makes the completed hero appear to fade twice.
+  if (loadIntro || reducedMotion.matches) return;
+  enterOnce(siteHeader, { distance: -3, startOpacity: 0.16, blur: 3, scale: 0.999, duration: 1750 });
+  enterOnce(heroPortrait, { distance: 3, distanceX: 24, startOpacity: 0.035, delay: 240, blur: 4, scale: 0.997, duration: 2450 });
+  enterOnce(heroCopy, { distance: 10, startOpacity: 0.01, delay: 480, blur: 5, scale: 0.998, duration: 2300 });
 };
 if (heroPortrait?.complete) revealHero();
 else heroPortrait?.addEventListener('load', revealHero, { once: true });

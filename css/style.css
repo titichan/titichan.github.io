@@ -160,6 +160,9 @@ button[hidden],[hidden] {
   object-fit:contain;
   object-position:center top;
   z-index:0;
+  user-select:none;
+  -webkit-user-drag:none;
+  -webkit-touch-callout:none;
 }
 .hero-copy {
   position:absolute;
@@ -746,7 +749,7 @@ button[hidden],[hidden] {
   .hero-copy::before {
     content:'';
     position:absolute;
-    inset:-28px -24px -35px;
+    inset:-28px -24px -64px;
     z-index:-1;
     background:linear-gradient(0deg,#f6f7fb 58%,#f6f7fbe8 75%,transparent);
   }
@@ -1000,6 +1003,12 @@ button[hidden],[hidden] {
   will-change:transform;
   animation:agene-moon-float 6.5s cubic-bezier(.45,0,.55,1) -1.5s infinite alternate;
 }
+.js .hero-moon {
+  transition:opacity .85s cubic-bezier(.22,.65,.28,1);
+}
+.js .hero-moon:not(.is-loaded) {
+  opacity:0!important;
+}
 @keyframes agene-moon-float {
   0% {
     transform:translate3d(0,-14px,0);
@@ -1018,7 +1027,7 @@ button[hidden],[hidden] {
 }
 /* Independent transparent portrait, placed over a separate moon asset. */
 .hero-portrait {
-  width:84%; height:auto; right:-6%; top:-12px;
+  width:84%; height:auto; right:-6%; top:clamp(-170px,-11vw,-125px);
 }
 .hero { background:#f8f9fc; }
 .hero-copy { top:36%; width:36%; }
@@ -1487,7 +1496,7 @@ img.chibi {
     top:clamp(-82px,-20vw,-64px);
   }
   .hero-copy {
-    bottom:82px;
+    bottom:64px;
   }
   .release-layout {
     margin-top:clamp(255px,69vw,295px);
