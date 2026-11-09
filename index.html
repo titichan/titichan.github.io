@@ -47,11 +47,9 @@
 <title>agene（あげね）｜UTAU音源公式サイト</title>
 <link rel="preload" href="fonts/CormorantGaramond-Italic.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/DMMono-Regular.ttf" as="font" type="font/ttf" crossorigin>
-<link rel="preload" href="img/agene-portrait-full-head.png" as="image" media="(max-width:1100px)" fetchpriority="high">
-<link rel="preload" href="img/agene-portrait-cutout.png" as="image" media="(min-width:1101px)" fetchpriority="high">
-<link rel="preload" href="img/moon-isolated.png" as="image">
-<link rel="stylesheet" href="css/style.css?v=20261109-125">
-<script src="js/main.js?v=20261109-65" defer></script>
+<link rel="preload" href="img/agene-portrait-full-head.webp" as="image" type="image/webp" fetchpriority="high">
+<link rel="stylesheet" href="css/style.css?v=20261109-129">
+<script src="js/main.js?v=20261109-67" defer></script>
 </head>
 <body>
 <div class="load-intro" aria-hidden="true">
@@ -73,10 +71,10 @@
 </header>
 <main id="main">
 <section class="hero" id="top" aria-labelledby="hero-title">
-<img loading="eager" class="hero-moon" src="img/moon-isolated.png" alt="" width="1254" height="1254">
+<picture><source srcset="img/moon-isolated.webp" type="image/webp"><img loading="eager" fetchpriority="low" class="hero-moon" src="img/moon-isolated.png" alt="" width="1254" height="1254"></picture>
 <picture>
-<source media="(max-width:1100px)" srcset="img/agene-portrait-full-head.png" width="1234" height="1275">
-<img loading="eager" class="hero-portrait" src="img/agene-portrait-cutout.png" alt="ageneのポートレート" width="1346" height="1168" fetchpriority="high">
+<source srcset="img/agene-portrait-full-head.webp" type="image/webp" width="1234" height="1275">
+<img loading="eager" class="hero-portrait" src="img/agene-portrait-full-head.png" alt="ageneのポートレート" width="1234" height="1275" fetchpriority="high" draggable="false">
 </picture>
 <div class="hero-plus-field" aria-hidden="true"></div>
 <div class="hero-copy">
