@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <style>
+    .a{animation:twinkle-a 6.4s ease-in-out infinite alternate}
+    .b{animation:twinkle-b 8.2s ease-in-out -3.1s infinite alternate}
+    @keyframes twinkle-a{from{opacity:.2}to{opacity:.5}}
+    @keyframes twinkle-b{from{opacity:.46}to{opacity:.18}}
+    @media (prefers-reduced-motion:reduce){.a,.b{animation:none;opacity:.32}}
+  </style>
+  <defs><path id="s" d="M0-7c1 4 2 5 7 7-5 2-6 3-7 7-1-4-2-5-7-7 5-2 6-3 7-7Z"/></defs>
+  <g fill="#758baa" class="a">
+    <use href="#s" transform="translate(157 30) scale(.78)"/>
+    <use href="#s" transform="translate(174 133) scale(1.05)"/>
+  </g>
+  <g fill="#9484a7" class="b">
+    <use href="#s" transform="translate(48 174) scale(.68)"/>
+    <use href="#s" transform="translate(22 73) scale(.9)"/>
+  </g>
+</svg>

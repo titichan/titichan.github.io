@@ -272,7 +272,7 @@ if ('IntersectionObserver' in window && !reducedMotion.matches) {
     '.releases',
     '.demo-heading',
     '.demo-player-group',
-    '.demo-layout>.chibi',
+    '.demo-mascot',
     '.terms-aside .section-heading',
     '.terms-aside>.chibi',
     '.terms-content',
@@ -286,7 +286,7 @@ if ('IntersectionObserver' in window && !reducedMotion.matches) {
       entranceObserver.unobserve(entry.target);
       const secondary = entry.target.matches('.character-info,.releases,.terms-content');
       const artFromLeft = entry.target.matches('.character-art,.voicebank-mascot,.terms-aside>.chibi');
-      const artFromRight = entry.target.matches('.demo-layout>.chibi,.site-footer>.chibi');
+      const artFromRight = entry.target.matches('.demo-mascot,.site-footer>.chibi');
       afterIntro(() => revealWhenReady(entry.target, {
         distance: artFromLeft || artFromRight ? 4 : (secondary ? 12 : 8),
         distanceX: artFromLeft ? -26 : (artFromRight ? 26 : 0),

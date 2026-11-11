@@ -458,6 +458,7 @@ button[hidden],[hidden] {
     margin:0;
   }
 }
+
 .demo-heading {
   display:grid;
   grid-template-columns:230px minmax(0,1fr);
@@ -771,7 +772,7 @@ button[hidden],[hidden] {
   }
   .character-info {
     border-left:0;
-    border-top:1px solid var(--line);
+    border-top:0;
     padding:35px 0 0;
     position:relative;
   }
@@ -917,6 +918,7 @@ button[hidden],[hidden] {
     position:absolute;
   }
 }
+
 @media(max-width:370px) {
   .brand-description {
     display:none;
@@ -1025,6 +1027,7 @@ button[hidden],[hidden] {
     animation-duration:5.2s;
   }
 }
+
 /* Independent transparent portrait, placed over a separate moon asset. */
 .hero-portrait {
   width:84%; height:auto; right:-6%; top:clamp(-170px,-11vw,-125px);
@@ -2014,5 +2017,856 @@ img.chibi {
     translate:none;
     scale:none;
     filter:none;
+  }
+}
+
+/* 2026-11-10: restrained atmospheric ornament below the unchanged first view. */
+.character,
+.voicebank,
+.demo,
+.terms {
+  --ornament-line:rgba(100,111,139,.16);
+  --ornament-blue:rgba(101,127,174,.13);
+  --ornament-lilac:rgba(139,127,166,.1);
+}
+.section > * {
+  position:relative;
+  z-index:1;
+}
+.character::before,
+.voicebank::before,
+.demo::before,
+.terms::before,
+.character::after,
+.voicebank::after,
+.demo::after,
+.terms::after {
+  content:'';
+  position:absolute;
+  display:block;
+  pointer-events:none;
+  user-select:none;
+}
+
+/* Faded antique diamond wallpaper, strongest beside the character artwork. */
+.character::before {
+  z-index:0;
+  inset:0;
+  background-image:
+    radial-gradient(ellipse 55% 42% at 8% 18%,rgba(168,177,200,.13),transparent 72%),
+    radial-gradient(ellipse 42% 48% at 94% 84%,rgba(153,140,180,.09),transparent 75%),
+    repeating-linear-gradient(45deg,transparent 0 24px,var(--ornament-line) 24px 25px,transparent 25px 49px),
+    repeating-linear-gradient(-45deg,transparent 0 24px,var(--ornament-line) 24px 25px,transparent 25px 49px);
+  -webkit-mask-image:linear-gradient(90deg,rgba(0,0,0,.92),rgba(0,0,0,.64) 58%,rgba(0,0,0,.2));
+  mask-image:linear-gradient(90deg,rgba(0,0,0,.92),rgba(0,0,0,.64) 58%,rgba(0,0,0,.2));
+  opacity:.72;
+}
+.character::after {
+  z-index:0;
+  left:max(var(--gutter),calc((100% - 1500px)/2));
+  right:max(var(--gutter),calc((100% - 1500px)/2));
+  bottom:18px;
+  height:13px;
+  background:
+    radial-gradient(circle at center,rgba(82,103,143,.58) 0 1.5px,transparent 2px),
+    linear-gradient(90deg,transparent,rgba(112,123,148,.42) 16%,rgba(112,123,148,.42) 46%,transparent 46%) left center/50% 1px no-repeat,
+    linear-gradient(90deg,transparent,rgba(112,123,148,.42) 8%,rgba(112,123,148,.42) 34%,transparent 34%) right center/50% 1px no-repeat;
+}
+.character::after {
+  clip-path:polygon(0 45%,44% 45%,46% 0,48% 45%,50% 45%,52% 45%,54% 100%,56% 45%,100% 45%,100% 55%,56% 55%,54% 100%,52% 55%,50% 55%,48% 55%,46% 0,44% 55%,0 55%);
+}
+
+/* A single classical divider and quiet corner tracery close the composition. */
+.terms::before {
+  z-index:0;
+  inset:0;
+  background:
+    linear-gradient(135deg,rgba(155,164,187,.11),transparent 28%) top left/62% 62% no-repeat,
+    radial-gradient(ellipse 55% 28% at 82% 102%,rgba(122,143,180,.11),transparent 74%);
+}
+.terms::after {
+  z-index:0;
+  top:34px;
+  right:var(--gutter);
+  width:clamp(90px,12vw,170px);
+  height:clamp(48px,7vw,96px);
+  border-top:1px solid rgba(110,122,149,.3);
+  border-right:1px solid rgba(110,122,149,.3);
+  background:
+    linear-gradient(45deg,transparent 49.5%,rgba(110,122,149,.26) 50%,transparent 50.5%) top right/42px 42px no-repeat,
+    radial-gradient(circle at calc(100% - 21px) 21px,rgba(110,122,149,.56) 0 1.5px,transparent 2px);
+}
+
+@media(max-width:700px) {
+  .character,
+  .voicebank,
+  .demo,
+  .terms {
+    --ornament-line:rgba(100,111,139,.1);
+  }
+  .character {
+    --ornament-line:rgba(100,111,139,.15);
+  }
+  .character::before {
+    background-size:auto,auto,68px 68px,68px 68px;
+    opacity:.6;
+    -webkit-mask-image:linear-gradient(180deg,#000,rgba(0,0,0,.72) 62%,rgba(0,0,0,.42));
+    mask-image:linear-gradient(180deg,#000,rgba(0,0,0,.72) 62%,rgba(0,0,0,.42));
+  }
+  .character::after {
+    display:none;
+  }
+  .terms::after {
+    top:20px;
+    width:72px;
+    height:42px;
+    opacity:.62;
+  }
+}
+
+/* 2026-11-10 refinement: localized classical ornament, with open space intact. */
+/* Remove the decorative header waveform; the functional player waves remain. */
+.voicebank .heading-with-wave .wave { display:none; }
+
+/* Remove the evenly distributed particle fields and concentrate detail locally. */
+.voicebank,
+.demo {
+  background:var(--paper);
+}
+.voicebank::before {
+  z-index:0;
+  inset:0;
+  background:
+    radial-gradient(ellipse 34% 28% at 18% 58%,rgba(116,136,174,.095),transparent 74%),
+    radial-gradient(ellipse 28% 18% at 88% 12%,rgba(151,136,174,.055),transparent 76%);
+  opacity:1;
+  animation:none;
+  transform:none;
+  filter:none;
+}
+.demo::before {
+  z-index:0;
+  inset:0;
+  background-image:
+    radial-gradient(circle,transparent 0 55%,rgba(126,136,159,.14) 55.5% 56%,transparent 56.5% 66%,rgba(145,128,166,.09) 66.5% 67%,transparent 67.5%),
+    radial-gradient(circle,transparent 0 55%,rgba(145,128,166,.12) 55.5% 56%,transparent 56.5% 66%,rgba(109,130,167,.08) 66.5% 67%,transparent 67.5%),
+    radial-gradient(ellipse 46% 30% at 18% 13%,rgba(151,136,174,.07),transparent 76%),
+    radial-gradient(ellipse 40% 28% at 86% 88%,rgba(108,132,174,.075),transparent 78%);
+  background-size:290px 290px,250px 250px,auto,auto;
+  background-position:-118px -122px,calc(100% + 108px) calc(100% + 105px),center,center;
+  background-repeat:no-repeat;
+  opacity:1;
+  animation:none;
+  transform:none;
+  filter:none;
+}
+.voicebank::after,
+.demo::after {
+  content:none;
+}
+
+/* VOICEBANK: lace halo behind the mascot, plus a restrained heading rule. */
+.voicebank .heading-with-wave {
+  position:relative;
+}
+.voicebank .section-heading {
+  position:relative;
+}
+.voicebank .section-heading::after {
+  content:'✦';
+  position:absolute;
+  left:0;
+  bottom:-17px;
+  width:min(210px,100%);
+  color:rgba(86,105,143,.58);
+  background:
+    linear-gradient(90deg,rgba(112,123,148,.4),rgba(112,123,148,.4)) left center/42% 1px no-repeat,
+    linear-gradient(90deg,rgba(112,123,148,.4),rgba(112,123,148,.4)) right center/42% 1px no-repeat;
+  font:10px/1 var(--mono);
+  text-align:center;
+  pointer-events:none;
+}
+.voicebank .heading-with-wave::after {
+  display:none;
+}
+.voicebank-mascot {
+  position:relative;
+  isolation:isolate;
+  overflow:visible;
+}
+.voicebank-mascot::before {
+  content:'';
+  position:absolute;
+  z-index:0;
+  top:50%;
+  left:50%;
+  width:118%;
+  aspect-ratio:1;
+  border-radius:50%;
+  background:
+    repeating-conic-gradient(from 3deg,rgba(105,124,158,.32) 0 1deg,transparent 1deg 12deg),
+    radial-gradient(circle,transparent 0 56%,rgba(105,124,158,.23) 56.5% 57%,transparent 57.5% 66%,rgba(143,126,164,.18) 66.5% 67%,transparent 67.5%);
+  -webkit-mask:radial-gradient(circle,transparent 0 54%,#000 55% 69%,transparent 70%);
+  mask:radial-gradient(circle,transparent 0 54%,#000 55% 69%,transparent 70%);
+  opacity:.58;
+  pointer-events:none;
+  transform:translate(-50%,-50%) rotate(0deg);
+  animation:agene-lace-turn 36s linear infinite;
+}
+.voicebank-mascot>img {
+  position:relative;
+  z-index:1;
+}
+@keyframes agene-lace-turn {
+  to { transform:translate(-50%,-50%) rotate(360deg); }
+}
+.release {
+  position:relative;
+}
+.release::before {
+  content:'';
+  position:absolute;
+  z-index:2;
+  top:-4px;
+  right:8px;
+  width:7px;
+  height:7px;
+  border:1px solid rgba(99,113,143,.42);
+  background:var(--paper);
+  pointer-events:none;
+  transform:rotate(45deg);
+}
+
+/* DEMO: a fine frame for the player and sparse musical detail by the mascot. */
+.demo-layout {
+  position:relative;
+}
+.demo-player {
+  isolation:isolate;
+  overflow:visible;
+}
+.demo-player::before,
+.demo-player::after {
+  content:'';
+  position:absolute;
+  pointer-events:none;
+}
+.demo-player::before {
+  z-index:0;
+  inset:-10px;
+  border:1px solid rgba(103,116,145,.34);
+  box-shadow:0 0 0 4px rgba(247,248,251,.82),0 0 0 5px rgba(137,122,160,.12);
+}
+.demo-player::after {
+  z-index:3;
+  inset:-17px;
+  background:
+    linear-gradient(rgba(104,118,148,.56),rgba(104,118,148,.56)) left top/40px 1px no-repeat,
+    linear-gradient(rgba(104,118,148,.56),rgba(104,118,148,.56)) left top/1px 40px no-repeat,
+    linear-gradient(rgba(104,118,148,.56),rgba(104,118,148,.56)) right top/40px 1px no-repeat,
+    linear-gradient(rgba(104,118,148,.56),rgba(104,118,148,.56)) right top/1px 40px no-repeat,
+    linear-gradient(rgba(136,119,158,.46),rgba(136,119,158,.46)) left bottom/40px 1px no-repeat,
+    linear-gradient(rgba(136,119,158,.46),rgba(136,119,158,.46)) left bottom/1px 40px no-repeat,
+    linear-gradient(rgba(136,119,158,.46),rgba(136,119,158,.46)) right bottom/40px 1px no-repeat,
+    linear-gradient(rgba(136,119,158,.46),rgba(136,119,158,.46)) right bottom/1px 40px no-repeat;
+}
+.demo-player iframe {
+  z-index:2;
+}
+.demo-layout::before,
+.demo-layout::after {
+  position:absolute;
+  z-index:2;
+  color:rgba(112,95,139,.46);
+  pointer-events:none;
+  animation:agene-note-float 6.8s ease-in-out infinite alternate;
+}
+.demo-layout::before {
+  content:'♪';
+  top:17%;
+  right:7%;
+  font:24px/1 Georgia,serif;
+}
+.demo-layout::after {
+  content:'✦  ♫';
+  right:-1%;
+  bottom:19%;
+  font:14px/1.4 Georgia,serif;
+  letter-spacing:.3em;
+  animation-delay:-3.4s;
+}
+@keyframes agene-note-float {
+  from { opacity:.38; transform:translate3d(0,4px,0); }
+  to { opacity:.7; transform:translate3d(0,-5px,0); }
+}
+
+@media(max-width:700px) {
+  .voicebank::before {
+    background:
+      radial-gradient(ellipse 58% 22% at 50% 34%,rgba(116,136,174,.075),transparent 76%);
+  }
+  .demo::before {
+    background-size:190px 190px,170px 170px,auto,auto;
+    background-position:-84px -78px,calc(100% + 72px) calc(100% + 68px),center,center;
+    opacity:.68;
+  }
+  .voicebank .heading-with-wave::after {
+    display:none;
+  }
+  .voicebank .heading-with-wave::before {
+    display:none;
+  }
+  .voicebank-mascot::before {
+    width:108%;
+    opacity:.38;
+  }
+  .release::before {
+    right:2px;
+    width:6px;
+    height:6px;
+  }
+  .demo-player::before { inset:-6px; }
+  .demo-player::after {
+    inset:-10px;
+    background-size:25px 1px,1px 25px,25px 1px,1px 25px,25px 1px,1px 25px,25px 1px,1px 25px;
+  }
+  .demo-layout::before {
+    top:auto;
+    right:23%;
+    bottom:24%;
+    font-size:18px;
+  }
+  .demo-layout::after {
+    right:auto;
+    left:21%;
+    bottom:7%;
+    font-size:11px;
+  }
+}
+
+@media(prefers-reduced-motion:reduce) {
+  .voicebank-mascot::before,
+  .demo-layout::before,
+  .demo-layout::after {
+    animation:none;
+    transform:none;
+  }
+}
+
+/* FV atmosphere: distant mist and an antique celestial chart behind the moon. */
+.hero-atmosphere {
+  position:absolute;
+  z-index:0;
+  inset:0;
+  overflow:hidden;
+  pointer-events:none;
+  user-select:none;
+}
+.hero-moon { z-index:1; }
+.hero-portrait { z-index:2; }
+.hero-plus-field { z-index:3; }
+.hero-copy { z-index:4; }
+.hero-atmosphere::before,
+.hero-atmosphere::after {
+  content:'';
+  position:absolute;
+  pointer-events:none;
+  will-change:transform,opacity;
+}
+.hero-atmosphere::before {
+  inset:8% -24% 0;
+  background:
+    radial-gradient(ellipse 28% 35% at 17% 48%,rgba(143,154,181,.15),transparent 72%),
+    radial-gradient(ellipse 34% 42% at 46% 32%,rgba(154,141,174,.12),transparent 73%),
+    radial-gradient(ellipse 30% 40% at 74% 57%,rgba(119,140,176,.13),transparent 75%),
+    radial-gradient(ellipse 24% 31% at 92% 28%,rgba(161,151,181,.09),transparent 72%);
+  filter:blur(18px);
+  opacity:.86;
+  transform:translate3d(-2.5%,0,0) scale(1.03);
+  animation:agene-mist-drift 34s cubic-bezier(.45,0,.55,1) infinite alternate;
+}
+.hero-atmosphere::after {
+  inset:24% -18% 2%;
+  background:
+    radial-gradient(ellipse 32% 30% at 28% 64%,rgba(122,144,179,.09),transparent 74%),
+    radial-gradient(ellipse 38% 34% at 68% 38%,rgba(150,137,171,.08),transparent 76%);
+  filter:blur(26px);
+  opacity:.68;
+  transform:translate3d(3%,1%,0) scale(1.04);
+  animation:agene-mist-drift-soft 46s cubic-bezier(.45,0,.55,1) -13s infinite alternate;
+}
+.hero-orbits {
+  position:absolute;
+  top:6%;
+  left:12%;
+  width:min(78vw,1120px);
+  aspect-ratio:1;
+  border:1px solid rgba(104,123,156,.24);
+  border-left-color:rgba(104,123,156,.08);
+  border-bottom-color:rgba(104,123,156,.11);
+  border-radius:50%;
+  background:
+    radial-gradient(circle at 22% 9%,rgba(108,126,158,.42) 0 1.5px,transparent 2px),
+    radial-gradient(circle at 82% 76%,rgba(141,126,160,.32) 0 1.5px,transparent 2px);
+  opacity:.82;
+  -webkit-mask-image:linear-gradient(90deg,rgba(0,0,0,.2),rgba(0,0,0,.7) 34%,#000 50%);
+  mask-image:linear-gradient(90deg,rgba(0,0,0,.2),rgba(0,0,0,.7) 34%,#000 50%);
+  transform:rotate(-10deg) scaleY(.58);
+  transform-origin:center;
+  animation:agene-orbit-drift 72s linear infinite;
+}
+.hero-orbits::before,
+.hero-orbits::after {
+  content:'';
+  position:absolute;
+  border-radius:50%;
+  pointer-events:none;
+}
+.hero-orbits::before {
+  inset:9% -4%;
+  border:1px solid rgba(126,111,151,.17);
+  border-top-color:rgba(126,111,151,.26);
+  border-right-color:transparent;
+  transform:rotate(24deg) scaleY(.78);
+}
+.hero-orbits::after {
+  inset:19% 7%;
+  border-top:1px solid rgba(98,119,155,.23);
+  border-right:1px solid rgba(98,119,155,.15);
+  transform:rotate(-18deg) scaleY(.7);
+}
+@keyframes agene-mist-drift {
+  from { opacity:.58; transform:translate3d(-2.5%,0,0) scale(1.03); }
+  to { opacity:.86; transform:translate3d(3.5%,-1%,0) scale(1.06); }
+}
+@keyframes agene-mist-drift-soft {
+  from { opacity:.46; transform:translate3d(3%,1%,0) scale(1.04); }
+  to { opacity:.72; transform:translate3d(-3%,-1%,0) scale(1.07); }
+}
+@keyframes agene-orbit-drift {
+  to { transform:rotate(350deg) scaleY(.58); }
+}
+
+@media(max-width:700px) {
+  .hero-atmosphere::before {
+    inset:6% -55% 0;
+    background:
+      radial-gradient(ellipse 35% 30% at 38% 30%,rgba(145,134,169,.07),transparent 74%),
+      radial-gradient(ellipse 38% 34% at 66% 62%,rgba(116,139,176,.075),transparent 76%);
+    filter:blur(16px);
+    opacity:.54;
+    animation-duration:44s;
+  }
+  .hero-atmosphere::after {
+    display:none;
+  }
+  .hero-orbits {
+    display:none;
+  }
+}
+
+@media(prefers-reduced-motion:reduce) {
+  .hero-atmosphere::before,
+  .hero-atmosphere::after,
+  .hero-orbits {
+    animation:none;
+    will-change:auto;
+  }
+}
+
+/* Wide PC FV: complete the composition within the first viewport. */
+@media(min-width:1101px) {
+  .hero {
+    height:100vh;
+    height:100svh;
+  }
+}
+
+@media(min-width:1101px) {
+  .hero-portrait {
+    width:clamp(108svh,84vw,135svh);
+    left:64%;
+    right:auto;
+    transform:translateX(-50%);
+  }
+  .hero-moon {
+    width:clamp(70svh,62vw,105svh);
+    left:49%;
+    translate:-50% 0;
+  }
+  .hero-copy {
+    top:max(90px,min(clamp(274px,23.4vw,360px),calc(100% - 395px)));
+  }
+}
+
+/* Wide PC sections: keep each composition readable within one viewport. */
+@media(min-width:1101px) {
+  .character,
+  .demo {
+    min-height:100vh;
+    min-height:100svh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    padding-top:clamp(32px,5svh,100px);
+    padding-bottom:clamp(32px,5svh,100px);
+  }
+
+  .character-layout {
+    margin-top:clamp(20px,3.5svh,64px);
+  }
+  .character-art img {
+    height:clamp(400px,calc(100svh - 300px),720px);
+  }
+  .character-info .display-name {
+    width:min(clamp(210px,22vw,330px),32svh);
+    margin-bottom:clamp(20px,4svh,40px);
+  }
+  .character-info .short-rule {
+    margin-top:clamp(16px,3svh,32px);
+    margin-bottom:clamp(16px,3svh,32px);
+  }
+  .character-info .chibi {
+    width:min(250px,22svh);
+    margin-top:clamp(20px,4svh,40px);
+  }
+
+  .demo-layout {
+    width:100%;
+    max-width:min(1150px,calc(100svh + 300px));
+    margin-top:clamp(20px,3.5svh,65px);
+  }
+}
+
+/* DEMO: align the editorial axis and give the player, mascot and notes room. */
+.demo-player::before {
+  inset:-4px;
+  border-color:rgba(103,116,145,.25);
+  box-shadow:none;
+}
+.demo-player::after {
+  display:none;
+}
+.demo::before {
+  opacity:.62;
+}
+.demo-layout::before {
+  content:'♫';
+  color:rgba(112,95,139,.38);
+}
+.demo-layout::after {
+  content:'✦';
+  color:rgba(101,127,174,.34);
+  letter-spacing:0;
+}
+
+@media(min-width:1101px) {
+  .demo {
+    --demo-shell-width:min(1150px,calc(100svh + 300px));
+  }
+  .demo-heading,
+  .demo-layout {
+    width:100%;
+    max-width:var(--demo-shell-width);
+    margin-right:auto;
+    margin-left:auto;
+  }
+  .demo-heading {
+    grid-template-columns:230px minmax(0,1fr);
+    gap:clamp(64px,7vw,112px);
+  }
+  .demo-layout {
+    display:grid;
+    grid-template-columns:minmax(0,1fr) clamp(190px,15vw,230px);
+    gap:clamp(52px,5vw,72px);
+    align-items:center;
+    margin-top:clamp(52px,6.5svh,76px);
+  }
+  .demo-layout>.chibi {
+    width:100%;
+    max-width:230px;
+    margin:0;
+    align-self:center;
+  }
+  .demo-layout::before {
+    top:15%;
+    right:2%;
+    font-size:22px;
+  }
+  .demo-layout::after {
+    right:20%;
+    bottom:12%;
+    font-size:12px;
+  }
+}
+
+@media(max-width:700px) {
+  .demo::before {
+    opacity:.48;
+  }
+  .demo-player::before {
+    inset:-3px;
+  }
+  .demo-layout::before {
+    top:auto;
+    right:11%;
+    bottom:27%;
+    font-size:19px;
+  }
+  .demo-layout::after {
+    right:auto;
+    left:15%;
+    bottom:9%;
+    font-size:12px;
+  }
+  .demo-layout>.chibi {
+    width:clamp(190px,52vw,215px);
+  }
+}
+
+/* VOICEBANK mascot: floating broken arcs with fixed four-point stars. */
+.voicebank-mascot {
+  background:none;
+}
+.voicebank-stars {
+  position:absolute;
+  z-index:0;
+  top:50%;
+  left:52%;
+  width:118%;
+  aspect-ratio:1;
+  background:url('../img/voicebank-stars.svg') center/contain no-repeat;
+  pointer-events:none;
+  transform:translate(-50%,-50%);
+}
+.voicebank-mascot::before,
+.voicebank-mascot::after {
+  content:'';
+  position:absolute;
+  z-index:0;
+  top:50%;
+  left:52%;
+  aspect-ratio:1;
+  border:0;
+  border-radius:50%;
+  background-position:center;
+  background-repeat:no-repeat;
+  background-size:contain;
+  -webkit-mask:none;
+  mask:none;
+  pointer-events:none;
+  will-change:transform,opacity;
+}
+.voicebank-mascot::before {
+  width:118%;
+  background-image:url('../img/voicebank-lace-outer.svg');
+  opacity:.58;
+  transform:translate(-50%,-50%);
+  animation:agene-lace-outer 20s linear infinite;
+}
+.voicebank-mascot::after {
+  width:100%;
+  background-image:url('../img/voicebank-lace-inner.svg');
+  opacity:.48;
+  transform:translate(-50%,-50%);
+  animation:agene-lace-inner 45s linear infinite;
+}
+@keyframes agene-lace-outer {
+  to { transform:translate(-50%,-50%) rotate(360deg); }
+}
+@keyframes agene-lace-inner {
+  to { transform:translate(-50%,-50%) rotate(-360deg); }
+}
+@media(max-width:700px) {
+  .section {
+    padding-top:clamp(30px,4.7svh,94px);
+  }
+  .voicebank-mascot {
+    overflow:visible;
+  }
+  .voicebank-stars {
+    width:124%;
+  }
+}
+@media(prefers-reduced-motion:reduce) {
+  .voicebank-mascot::before,
+  .voicebank-mascot::after {
+    animation:none;
+    transform:translate(-50%,-50%);
+    will-change:auto;
+  }
+}
+
+/* DEMO listening motion: ripples and symbols stay local to the mascot. */
+.demo-layout::before,
+.demo-layout::after {
+  content:none;
+}
+.demo-mascot {
+  position:relative;
+  isolation:isolate;
+  flex:0 0 auto;
+  align-self:center;
+  justify-self:end;
+  width:100%;
+  max-width:230px;
+  margin:0;
+}
+.demo-mascot>.chibi {
+  position:relative;
+  z-index:2;
+  display:block;
+  width:100%;
+  max-width:none;
+  height:auto;
+  margin:0;
+  aspect-ratio:auto;
+  animation:agene-demo-mascot-float 3.8s ease-in-out infinite;
+  will-change:translate;
+}
+.demo-ripple {
+  position:absolute;
+  z-index:0;
+  top:50%;
+  left:50%;
+  width:130%;
+  aspect-ratio:1;
+  translate:-50% -50%;
+  pointer-events:none;
+}
+.demo-ripple::before,
+.demo-ripple::after {
+  content:'';
+  position:absolute;
+  inset:12%;
+  border:1px solid rgba(139,121,164,.2);
+  border-radius:50%;
+  opacity:0;
+  animation:agene-demo-ripple 3.8s cubic-bezier(.2,.55,.28,1) infinite;
+  will-change:transform,opacity;
+}
+.demo-ripple::after {
+  border-color:rgba(105,128,168,.16);
+  animation-delay:-1.9s;
+}
+.demo-symbol {
+  position:absolute;
+  z-index:3;
+  color:rgba(112,95,139,.42);
+  font-family:Georgia,serif;
+  line-height:1;
+  pointer-events:none;
+  animation:agene-demo-symbol-float 4.6s ease-in-out infinite alternate;
+  will-change:transform,opacity;
+}
+.demo-symbol--note {
+  top:9%;
+  right:-2%;
+  font-size:22px;
+}
+.demo-symbol--star {
+  left:-7%;
+  bottom:12%;
+  color:rgba(101,127,174,.36);
+  font-size:12px;
+  animation-duration:5.2s;
+  animation-delay:-2.4s;
+}
+@keyframes agene-demo-mascot-float {
+  0%,100% { translate:0 2px; }
+  50% { translate:0 -4px; }
+}
+@keyframes agene-demo-ripple {
+  0% { opacity:0; transform:scale(.7); }
+  18% { opacity:.3; }
+  78%,100% { opacity:0; transform:scale(1.2); }
+}
+@keyframes agene-demo-symbol-float {
+  from { opacity:.36; transform:translate3d(0,3px,0) rotate(-3deg); }
+  to { opacity:.68; transform:translate3d(0,-5px,0) rotate(3deg); }
+}
+@media(max-width:700px) {
+  .demo-mascot {
+    width:clamp(190px,52vw,215px);
+    max-width:none;
+    margin:8px auto 0;
+  }
+  .demo-ripple {
+    width:128%;
+  }
+  .demo-symbol--note {
+    top:12%;
+    right:-5%;
+    font-size:19px;
+  }
+  .demo-symbol--star {
+    left:-8%;
+    bottom:14%;
+    font-size:12px;
+  }
+}
+@media(prefers-reduced-motion:reduce) {
+  .demo-mascot>.chibi,
+  .demo-ripple::before,
+  .demo-ripple::after,
+  .demo-symbol {
+    animation:none;
+    will-change:auto;
+  }
+  .demo-mascot>.chibi {
+    translate:none;
+  }
+  .demo-ripple::before,
+  .demo-ripple::after {
+    opacity:.12;
+    transform:scale(1);
+  }
+  .demo-symbol {
+    opacity:.46;
+    transform:none;
+  }
+}
+
+/* DEMO background: slow orbital drift and a quiet lavender glow. */
+.demo::before {
+  background-image:
+    radial-gradient(circle,transparent 0 55%,rgba(126,136,159,.14) 55.5% 56%,transparent 56.5% 66%,rgba(145,128,166,.09) 66.5% 67%,transparent 67.5%),
+    radial-gradient(circle,transparent 0 55%,rgba(145,128,166,.12) 55.5% 56%,transparent 56.5% 66%,rgba(109,130,167,.08) 66.5% 67%,transparent 67.5%);
+  transform-origin:center;
+  animation:agene-demo-orbit-drift 26s ease-in-out infinite;
+  will-change:transform;
+}
+.demo::after {
+  content:'';
+  display:block;
+  z-index:0;
+  inset:0;
+  background:radial-gradient(ellipse 25% 38% at 85% 62%,rgba(148,128,174,.1),rgba(112,133,171,.035) 48%,transparent 76%);
+  opacity:.3;
+  animation:agene-demo-glow-pulse 18s ease-in-out infinite;
+  will-change:opacity;
+}
+@keyframes agene-demo-orbit-drift {
+  0%,100% { transform:translate3d(-.25%,.2%,0) scale(.996); }
+  50% { transform:translate3d(.45%,-.35%,0) scale(1.012); }
+}
+@keyframes agene-demo-glow-pulse {
+  0%,100% { opacity:.24; }
+  50% { opacity:.52; }
+}
+@media(max-width:700px) {
+  .demo::after {
+    background:radial-gradient(ellipse 58% 28% at 50% 70%,rgba(148,128,174,.1),rgba(112,133,171,.03) 50%,transparent 78%);
+  }
+}
+@media(prefers-reduced-motion:reduce) {
+  .demo::before,
+  .demo::after {
+    animation:none;
+    transform:none;
+    will-change:auto;
+  }
+  .demo::after {
+    opacity:.36;
   }
 }
